@@ -1,0 +1,6 @@
+framework module Pods_haniProject {
+  umbrella header "Pods-haniProject-umbrella.h"
+
+  export *
+  module * { export * }
+}
