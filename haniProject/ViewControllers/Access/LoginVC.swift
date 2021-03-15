@@ -1,15 +1,21 @@
 //
-//  LoginVC.swift
+//  Login2VC.swift
 //  haniProject
 //
-//  Created by Hani on 2021/03/08.
+//  Created by Hani on 2021/03/09.
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+import FirebaseFirestore
+//import GoogleSignIn
+import FBSDKLoginKit
 
-class LoginVC: UIViewController {
+class LoginVC : UIViewController {
 
-    private let scrollerView : UIScrollView = {
+
+    private let scrollView : UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.clipsToBounds = true
         return scrollView
@@ -22,71 +28,53 @@ class LoginVC: UIViewController {
         return imageView
     }()
     
-    private let emailField : UITextField = {
-        let field = UITextField()
-        field.autocapitalizationType = .none
-        field.autocorrectionType = .no
-        field.returnKeyType = .continue
-        field.layer.cornerRadius = 12
-        field.layer.borderWidth = 1
-        field.layer.borderColor = UIColor.lightGray.cgColor
-        field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 0))
-        field.leftViewMode = .always
-        field.backgroundColor = .white
-        field.placeholder = "Email address"
-        return field
-    }()
-    
-    private let passwordField : UITextField = {
-        let field = UITextField()
-        field.autocapitalizationType = .none
-        field.autocorrectionType = .no
-        field.returnKeyType = .done
-        field.layer.cornerRadius = 12
-        field.layer.borderWidth = 1
-        field.layer.borderColor = UIColor.lightGray.cgColor
-        field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 0))
-        field.leftViewMode = .always
-        field.backgroundColor = .white
-        field.placeholder = "password"
-        field.isSecureTextEntry = true
-        return field
-    }()
-    
-    private let loginButton : UIButton = {
+    private let emailSignUpButton : UIButton = {
         let button = UIButton()
-        button.setTitle("Login", for: .normal)
-        button.backgroundColor = .link
-        button.setTitleColor(.white, for: .normal)
+        button.setTitle("이메일로 가입", for: .normal)
+        button.setTitleColor(UIColor.appColor(.pastelPink), for: .normal)
         button.layer.cornerRadius = 12
         button.layer.masksToBounds = true
-        button.titleLabel?.font = .systemFont(ofSize: 20, weight : .bold)
+        button.titleLabel?.font = .systemFont(ofSize: 20, weight: .thin)
+        button.addTarget(self, action: #selector(didTapSignUp), for: .touchUpInside)
         return button
     }()
     
+    private let emailSignInButton : UIButton = {
+        let button = UIButton()
+        button.setTitle("이메일로 로그인", for: .normal)
+        button.setTitleColor(UIColor.appColor(.pastelPink), for: .normal)
+        button.layer.cornerRadius = 12
+        button.layer.masksToBounds = true
+        button.titleColor(for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 20, weight: .thin)
+        return button
+    }()
+    
+    //private let googleSignInButton =  GIDSignInButton()
+    //private let facebookLoginButton = FBLoginButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Log in "
         view.backgroundColor = .white
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Register",
-                                                            style: .done,
-                                                            target: self,
-                                                            action: #selector(didTapRegister))
-        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
-        emailField.delegate=self
-        passwordField.delegate=self
-        view.addSubview(scrollerView)
-        scrollerView.addSubview(imageView)
-        scrollerView.addSubview(emailField)
-        scrollerView.addSubview(passwordField)
-        scrollerView.addSubview(loginButton)
+        //GIDSignIn.sharedInstance()?.presentingViewController = self
+        //GIDSignIn.sharedInstance().signIn()
+        //googleSignInButton.style = .standard
+        
+        //facebookLoginButton.delegate = self
+        
+        view.addSubview(scrollView)
+        scrollView.addSubview(imageView)
+        scrollView.addSubview(emailSignUpButton)
+        scrollView.addSubview(emailSignInButton)
+        //scrollerView.addSubview(googleSignInButton)
+        //scrollerView.addSubview(facebookLoginButton)
+        
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        scrollerView.frame = view.bounds
+        scrollView.frame = view.bounds
         
         let size = view.frame.size.width/3
         imageView.frame = CGRect(x: (view.frame.size.width-size)/2,
@@ -94,58 +82,34 @@ class LoginVC: UIViewController {
                                  width: size,
                                  height: size)
         
-        emailField.frame = CGRect(x: 30,
+        emailSignUpButton.frame = CGRect(x: 30,
+                                  y: imageView.bottom+10,
+                                  width: scrollView.width-60,
+                                 height: 50)
+        
+        emailSignInButton.frame = CGRect(x: 30,
+                                  y: emailSignUpButton.bottom+10,
+                                  width: scrollView.width-60,
+                                 height: 50)
+        
+        /*
+        googleSignInButton.frame = CGRect(x: 30,
                                   y: imageView.bottom+10,
                                   width: scrollerView.width-60,
                                  height: 50)
+        */
         
-        passwordField.frame = CGRect(x: 30,
-                                 y: emailField.bottom+10,
-                                 width: scrollerView.width-60,
-                                 height: 50)
-        
-        loginButton.frame = CGRect(x: 30,
-                                 y: passwordField.bottom+10,
-                                 width: scrollerView.width-60,
-                                 height: 50)
+        /*
+        facebookSignInButton.frame = CGRect(x: 30,
+                                y: googleSignInButton.bottom+10,
+                                  width: scrollerView.width-60,
+                                height: 50)
+        */
+       
     }
     
-    @objc private func loginButtonTapped() {
-        
-        emailField.resignFirstResponder()
-        passwordField.resignFirstResponder()
-        
-        guard let email = emailField.text, let password = passwordField.text,
-              !email.isEmpty, !password.isEmpty, password.count>=6 else {
-            alertUserLoginError()
-            return
-        }
+    @objc private func didTapSignUp(sender: UIButton!) {
+        let VC = EmailSignUpVC()
+        self.present(VC, animated: false, completion: nil)
     }
-    
-    func alertUserLoginError() {
-        let alert = UIAlertController(title: "woops", message: "please write all info", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
-        present(alert,animated: true)
-    }
-    
-    @objc private func didTapRegister() {
-        let vc = RegisterVC()
-        vc.title = "create acc"
-        navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    
-}
-extension LoginVC : UITextFieldDelegate {
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == emailField {
-            passwordField.becomeFirstResponder()
-        }
-        else if textField == passwordField{
-            loginButtonTapped()
-        }
-        return true
-    }
-    
 }

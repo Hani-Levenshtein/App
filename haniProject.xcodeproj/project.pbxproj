@@ -3,16 +3,20 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3744F63025FF104B003C5B9C /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3744F62F25FF104B003C5B9C /* UIColor.swift */; };
+		377BB54425FEFE390093223C /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		379C9A9825F5FC9700B5FBDB /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379C9A9725F5FC9700B5FBDB /* MessageCell.swift */; };
 		379C9A9C25F5FCAA00B5FBDB /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379C9A9B25F5FCAA00B5FBDB /* ChatCell.swift */; };
-		379C9AA225F6033B00B5FBDB /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379C9AA125F6033B00B5FBDB /* LoginVC.swift */; };
-		379C9AA625F6034500B5FBDB /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379C9AA525F6034500B5FBDB /* RegisterVC.swift */; };
-		379C9AAA25F6043A00B5FBDB /* AVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379C9AA925F6043A00B5FBDB /* AVC.swift */; };
-		379C9AAF25F60A5600B5FBDB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379C9AAE25F60A5600B5FBDB /* Extensions.swift */; };
+		379C9AAF25F60A5600B5FBDB /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379C9AAE25F60A5600B5FBDB /* UIView.swift */; };
+		37B8B2A825F6ADA600CCA714 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B8B2A725F6ADA600CCA714 /* LoginVC.swift */; };
+		37B8B2AC25F6AE3C00CCA714 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37B8B2AB25F6AE3C00CCA714 /* GoogleService-Info.plist */; };
+		37B8B2D925F75D8500CCA714 /* EmailSignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B8B2D825F75D8500CCA714 /* EmailSignUpVC.swift */; };
+		37B8B2DD25F75D9D00CCA714 /* EmailSignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B8B2DC25F75D9D00CCA714 /* EmailSignInVC.swift */; };
+		37BBFEDA25F84F89005A901B /* InfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BBFED925F84F89005A901B /* InfoVC.swift */; };
 		37D24C7125F4B7E400E44F45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D24C7025F4B7E400E44F45 /* AppDelegate.swift */; };
 		37D24C7325F4B7E400E44F45 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D24C7225F4B7E400E44F45 /* SceneDelegate.swift */; };
 		37D24C7A25F4B7E500E44F45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37D24C7925F4B7E500E44F45 /* Assets.xcassets */; };
@@ -20,19 +24,16 @@
 		37D24C9325F4B7E500E44F45 /* haniProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D24C9225F4B7E500E44F45 /* haniProjectUITests.swift */; };
 		37D24CAB25F4BA7300E44F45 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D24CAA25F4BA7300E44F45 /* TabBarVC.swift */; };
 		37D24CB325F4BAFD00E44F45 /* BoardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D24CB225F4BAFD00E44F45 /* BoardVC.swift */; };
-		37D24CB825F4BD5300E44F45 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37D24CB725F4BD5300E44F45 /* GoogleService-Info.plist */; };
 		37E5987725F4C22200414B76 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E5987625F4C22200414B76 /* SettingVC.swift */; };
 		37E5987C25F4C2CA00414B76 /* GraphVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E5987B25F4C2CA00414B76 /* GraphVC.swift */; };
 		37E5988125F4C2F400414B76 /* RoutineVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E5988025F4C2F400414B76 /* RoutineVC.swift */; };
 		37E5988625F4C32200414B76 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E5988525F4C32200414B76 /* ChatVC.swift */; };
-		37E5989425F4C43000414B76 /* FirebaseAnalytics.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37E5989325F4C43000414B76 /* FirebaseAnalytics.xcframework */; };
-		37E5989525F4C43000414B76 /* FirebaseAnalytics.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 37E5989325F4C43000414B76 /* FirebaseAnalytics.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		37E598ED25F4C70300414B76 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E598EC25F4C70300414B76 /* FeedCell.swift */; };
 		37E598F225F4C71900414B76 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E598F125F4C71900414B76 /* Feed.swift */; };
 		37E598F725F4C73000414B76 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E598F625F4C73000414B76 /* Message.swift */; };
 		37E598FD25F4C74B00414B76 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E598FC25F4C74B00414B76 /* Chat.swift */; };
 		37E5990125F4C75800414B76 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E5990025F4C75800414B76 /* User.swift */; };
-		9FE34F728A2E7A8B43DECC96 /* Pods_haniProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5687E0860BD0A58C4393554 /* Pods_haniProject.framework */; };
+		733D58FB537AB77E1852220D /* Pods_haniProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16458514058C4328299C596E /* Pods_haniProject.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +60,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				37E5989525F4C43000414B76 /* FirebaseAnalytics.xcframework in Embed Frameworks */,
+				377BB54425FEFE390093223C /* (null) in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67,13 +68,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		21D78D3686D1FD4CB21F6E33 /* Pods-haniProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-haniProject.debug.xcconfig"; path = "Target Support Files/Pods-haniProject/Pods-haniProject.debug.xcconfig"; sourceTree = "<group>"; };
+		16458514058C4328299C596E /* Pods_haniProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_haniProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3744F5AD25FF079E003C5B9C /* FirebaseFirestore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseFirestore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3744F62F25FF104B003C5B9C /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		379C9A9725F5FC9700B5FBDB /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		379C9A9B25F5FCAA00B5FBDB /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
-		379C9AA125F6033B00B5FBDB /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
-		379C9AA525F6034500B5FBDB /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
-		379C9AA925F6043A00B5FBDB /* AVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVC.swift; sourceTree = "<group>"; };
-		379C9AAE25F60A5600B5FBDB /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		379C9AAE25F60A5600B5FBDB /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		37B8B2A725F6ADA600CCA714 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginVC.swift; path = Access/LoginVC.swift; sourceTree = "<group>"; };
+		37B8B2AB25F6AE3C00CCA714 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../.Trash/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		37B8B2D825F75D8500CCA714 /* EmailSignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSignUpVC.swift; sourceTree = "<group>"; };
+		37B8B2DC25F75D9D00CCA714 /* EmailSignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSignInVC.swift; sourceTree = "<group>"; };
+		37BBFED925F84F89005A901B /* InfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVC.swift; sourceTree = "<group>"; };
 		37D24C6D25F4B7E400E44F45 /* haniProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = haniProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37D24C7025F4B7E400E44F45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37D24C7225F4B7E400E44F45 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,7 +92,6 @@
 		37D24C9425F4B7E500E44F45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37D24CAA25F4BA7300E44F45 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		37D24CB225F4BAFD00E44F45 /* BoardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardVC.swift; sourceTree = "<group>"; };
-		37D24CB725F4BD5300E44F45 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		37E5987625F4C22200414B76 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		37E5987B25F4C2CA00414B76 /* GraphVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphVC.swift; sourceTree = "<group>"; };
 		37E5988025F4C2F400414B76 /* RoutineVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineVC.swift; sourceTree = "<group>"; };
@@ -102,8 +106,8 @@
 		37E598F625F4C73000414B76 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		37E598FC25F4C74B00414B76 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		37E5990025F4C75800414B76 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		D5687E0860BD0A58C4393554 /* Pods_haniProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_haniProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E1185206BB4EEDA0F3D72A18 /* Pods-haniProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-haniProject.release.xcconfig"; path = "Target Support Files/Pods-haniProject/Pods-haniProject.release.xcconfig"; sourceTree = "<group>"; };
+		4D2313B510CE7E294D54A9F8 /* Pods-haniProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-haniProject.debug.xcconfig"; path = "Target Support Files/Pods-haniProject/Pods-haniProject.debug.xcconfig"; sourceTree = "<group>"; };
+		CEBB4DF0D880CD4F68034ED7 /* Pods-haniProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-haniProject.release.xcconfig"; path = "Target Support Files/Pods-haniProject/Pods-haniProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,8 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37E5989425F4C43000414B76 /* FirebaseAnalytics.xcframework in Frameworks */,
-				9FE34F728A2E7A8B43DECC96 /* Pods_haniProject.framework in Frameworks */,
+				733D58FB537AB77E1852220D /* Pods_haniProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,6 +136,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3744F62C25FF1018003C5B9C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				379C9AAE25F60A5600B5FBDB /* UIView.swift */,
+				3744F62F25FF104B003C5B9C /* UIColor.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		379C9A9F25F6030A00B5FBDB /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,22 +157,12 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
-		379C9AA025F6031D00B5FBDB /* Access */ = {
-			isa = PBXGroup;
-			children = (
-				379C9AA125F6033B00B5FBDB /* LoginVC.swift */,
-				379C9AA525F6034500B5FBDB /* RegisterVC.swift */,
-				379C9AA925F6043A00B5FBDB /* AVC.swift */,
-			);
-			path = Access;
-			sourceTree = "<group>";
-		};
 		379C9AAD25F60A3900B5FBDB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3744F62C25FF1018003C5B9C /* Extensions */,
 				37D24C7025F4B7E400E44F45 /* AppDelegate.swift */,
 				37D24C7225F4B7E400E44F45 /* SceneDelegate.swift */,
-				379C9AAE25F60A5600B5FBDB /* Extensions.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -197,7 +199,7 @@
 				37D24C7E25F4B7E500E44F45 /* Info.plist */,
 				37D24C7925F4B7E500E44F45 /* Assets.xcassets */,
 				37D24CAA25F4BA7300E44F45 /* TabBarVC.swift */,
-				37D24CB725F4BD5300E44F45 /* GoogleService-Info.plist */,
+				37B8B2AB25F6AE3C00CCA714 /* GoogleService-Info.plist */,
 			);
 			path = haniProject;
 			sourceTree = "<group>";
@@ -223,7 +225,10 @@
 		37D24CA925F4BA2800E44F45 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				379C9AA025F6031D00B5FBDB /* Access */,
+				37B8B2A725F6ADA600CCA714 /* LoginVC.swift */,
+				37B8B2DC25F75D9D00CCA714 /* EmailSignInVC.swift */,
+				37B8B2D825F75D8500CCA714 /* EmailSignUpVC.swift */,
+				37BBFED925F84F89005A901B /* InfoVC.swift */,
 				379C9A9F25F6030A00B5FBDB /* TabBar */,
 			);
 			path = ViewControllers;
@@ -253,12 +258,13 @@
 		49DD1C59CE2B3F3C4675B53E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3744F5AD25FF079E003C5B9C /* FirebaseFirestore.framework */,
 				37E598A225F4C44500414B76 /* Realm.framework */,
 				37E5989D25F4C44000414B76 /* RealmSwift.framework */,
 				37E5989825F4C43400414B76 /* FirebaseFirestore.framework */,
 				37E5989325F4C43000414B76 /* FirebaseAnalytics.xcframework */,
 				37E5988D25F4C42400414B76 /* Alamofire.framework */,
-				D5687E0860BD0A58C4393554 /* Pods_haniProject.framework */,
+				16458514058C4328299C596E /* Pods_haniProject.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -266,8 +272,8 @@
 		AA851EA4EA0CFC0A39B38676 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				21D78D3686D1FD4CB21F6E33 /* Pods-haniProject.debug.xcconfig */,
-				E1185206BB4EEDA0F3D72A18 /* Pods-haniProject.release.xcconfig */,
+				4D2313B510CE7E294D54A9F8 /* Pods-haniProject.debug.xcconfig */,
+				CEBB4DF0D880CD4F68034ED7 /* Pods-haniProject.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -279,13 +285,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 37D24C9725F4B7E500E44F45 /* Build configuration list for PBXNativeTarget "haniProject" */;
 			buildPhases = (
-				4265E00F37DA848157EB367E /* [CP] Check Pods Manifest.lock */,
+				874E03421DA612D2FE7E1A70 /* [CP] Check Pods Manifest.lock */,
 				37D24C6925F4B7E400E44F45 /* Sources */,
 				37D24C6A25F4B7E400E44F45 /* Frameworks */,
 				37D24C6B25F4B7E400E44F45 /* Resources */,
-				A3DC9070A3568911AF944B22 /* [CP] Embed Pods Frameworks */,
 				37E5989025F4C42400414B76 /* Embed Frameworks */,
-				424708AECC2FCAC914496F3B /* [CP] Copy Pods Resources */,
+				DBB9973B8558D6028587ED1E /* [CP] Embed Pods Frameworks */,
+				37576BCDC962722DCF76EA67 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -380,7 +386,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37D24C7A25F4B7E500E44F45 /* Assets.xcassets in Resources */,
-				37D24CB825F4BD5300E44F45 /* GoogleService-Info.plist in Resources */,
+				37B8B2AC25F6AE3C00CCA714 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,7 +407,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		424708AECC2FCAC914496F3B /* [CP] Copy Pods Resources */ = {
+		37576BCDC962722DCF76EA67 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -418,7 +424,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-haniProject/Pods-haniProject-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4265E00F37DA848157EB367E /* [CP] Check Pods Manifest.lock */ = {
+		874E03421DA612D2FE7E1A70 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -440,7 +446,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A3DC9070A3568911AF944B22 /* [CP] Embed Pods Frameworks */ = {
+		DBB9973B8558D6028587ED1E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -465,22 +471,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				37E5988625F4C32200414B76 /* ChatVC.swift in Sources */,
+				3744F63025FF104B003C5B9C /* UIColor.swift in Sources */,
 				37E598ED25F4C70300414B76 /* FeedCell.swift in Sources */,
-				379C9AAA25F6043A00B5FBDB /* AVC.swift in Sources */,
 				37E5988125F4C2F400414B76 /* RoutineVC.swift in Sources */,
-				379C9AA225F6033B00B5FBDB /* LoginVC.swift in Sources */,
+				37B8B2DD25F75D9D00CCA714 /* EmailSignInVC.swift in Sources */,
+				37B8B2A825F6ADA600CCA714 /* LoginVC.swift in Sources */,
 				37E598F225F4C71900414B76 /* Feed.swift in Sources */,
 				37E5987725F4C22200414B76 /* SettingVC.swift in Sources */,
 				37E5990125F4C75800414B76 /* User.swift in Sources */,
 				37E598FD25F4C74B00414B76 /* Chat.swift in Sources */,
 				37E5987C25F4C2CA00414B76 /* GraphVC.swift in Sources */,
+				37BBFEDA25F84F89005A901B /* InfoVC.swift in Sources */,
 				379C9A9C25F5FCAA00B5FBDB /* ChatCell.swift in Sources */,
 				37D24CAB25F4BA7300E44F45 /* TabBarVC.swift in Sources */,
+				37B8B2D925F75D8500CCA714 /* EmailSignUpVC.swift in Sources */,
 				37D24CB325F4BAFD00E44F45 /* BoardVC.swift in Sources */,
 				379C9A9825F5FC9700B5FBDB /* MessageCell.swift in Sources */,
-				379C9AAF25F60A5600B5FBDB /* Extensions.swift in Sources */,
+				379C9AAF25F60A5600B5FBDB /* UIView.swift in Sources */,
 				37E598F725F4C73000414B76 /* Message.swift in Sources */,
-				379C9AA625F6034500B5FBDB /* RegisterVC.swift in Sources */,
 				37D24C7125F4B7E400E44F45 /* AppDelegate.swift in Sources */,
 				37D24C7325F4B7E400E44F45 /* SceneDelegate.swift in Sources */,
 			);
@@ -555,6 +563,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -616,6 +625,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -627,6 +637,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -636,7 +647,7 @@
 		};
 		37D24C9825F4B7E500E44F45 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 21D78D3686D1FD4CB21F6E33 /* Pods-haniProject.debug.xcconfig */;
+			baseConfigurationReference = 4D2313B510CE7E294D54A9F8 /* Pods-haniProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -656,7 +667,7 @@
 		};
 		37D24C9925F4B7E500E44F45 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E1185206BB4EEDA0F3D72A18 /* Pods-haniProject.release.xcconfig */;
+			baseConfigurationReference = CEBB4DF0D880CD4F68034ED7 /* Pods-haniProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

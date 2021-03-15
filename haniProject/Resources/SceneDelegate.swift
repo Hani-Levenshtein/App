@@ -23,9 +23,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 // 윈도우의 크기 설정
                 window = UIWindow(frame: UIScreen.main.bounds)
                 
-        
                 // 네비게이션 컨트롤러 설정
-                let VC = TabBarVC()
+                let VC = LoginVC()
                 
                 // 뿌리 뷰컨트롤러를 설정
                 window?.rootViewController = VC

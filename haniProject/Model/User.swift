@@ -14,4 +14,6 @@ struct User {
     var consecutiveDay : Int
     var profileImage : String
     var notification : Bool
+    var gender : String
+    var birth : Int
 }
