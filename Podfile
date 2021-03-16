@@ -15,8 +15,6 @@ target 'haniProject' do
 	pod 'Firebase/Database'
 	pod 'Firebase/Core'
 
-	pod 'Alamofire'
-
 	pod 'GoogleSignIn'
 
 	pod 'FBSDKLoginKit'

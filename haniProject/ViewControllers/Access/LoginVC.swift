@@ -14,7 +14,6 @@ import FBSDKLoginKit
 
 class LoginVC : UIViewController {
 
-
     private let scrollView : UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.clipsToBounds = true
@@ -35,7 +34,7 @@ class LoginVC : UIViewController {
         button.layer.cornerRadius = 12
         button.layer.masksToBounds = true
         button.titleLabel?.font = .systemFont(ofSize: 20, weight: .thin)
-        button.addTarget(self, action: #selector(didTapSignUp), for: .touchUpInside)
+        button.addTarget(self, action: #selector(emailSignUpButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -55,7 +54,8 @@ class LoginVC : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        self.view.backgroundColor = .white
+        
         //GIDSignIn.sharedInstance()?.presentingViewController = self
         //GIDSignIn.sharedInstance().signIn()
         //googleSignInButton.style = .standard
@@ -108,8 +108,11 @@ class LoginVC : UIViewController {
        
     }
     
-    @objc private func didTapSignUp(sender: UIButton!) {
-        let VC = EmailSignUpVC()
-        self.present(VC, animated: false, completion: nil)
+    @objc private func emailSignUpButtonTapped(sender: UIButton!) {
+        let vc = EmailSignUpVC()
+        //->뒤로가기 안생김 self.dismiss(animated:true) 필요함
+        vc.modalPresentationStyle = .fullScreen
+        //self.present(vc, animated: true, completion: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

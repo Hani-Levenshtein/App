@@ -8,7 +8,7 @@
 import Foundation
 
 struct Feed {
-    var ID : String
+    var identifier : String
     var Title : String
     var uploadAt : String
     var uploadBy : String

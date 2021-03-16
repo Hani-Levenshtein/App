@@ -9,7 +9,7 @@ import Foundation
 import Firebase
 
 struct Message {
-    var ID : String
+    var identifier : String
     var type : String
     var sentAt : Timestamp
     var sentBy : String

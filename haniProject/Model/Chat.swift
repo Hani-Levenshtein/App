@@ -9,12 +9,12 @@ import Foundation
 import Firebase
 
 struct Chat {
-    var ID :String
-    var Title : String
+    var identifier :String
+    var title : String
     var numberOfPeople : Int
     var master : String
     var lastSentBy : String
-    var lastSentAt : Timestamp
+    var lastSentAt : Timestamp //(date: Date())
     
     
 }

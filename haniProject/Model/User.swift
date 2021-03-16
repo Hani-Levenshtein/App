@@ -9,11 +9,10 @@ import Foundation
 import Firebase
 
 struct User {
-    var ID : String
+    var identifier : String
     var name : String
     var consecutiveDay : Int
     var profileImage : String
     var notification : Bool
     var gender : String
-    var birth : Int
 }

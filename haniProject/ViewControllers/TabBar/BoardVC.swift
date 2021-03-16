@@ -6,17 +6,15 @@
 //
 
 import UIKit
-class BoardVC : UIViewController{
+class BoardVC : UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .gray
-    
-        let navBar = UINavigationBar()
-        navigationController?.navigationBar.tintColor = .black
-        navigationController?.navigationBar.barTintColor = .red
-        self.view.addSubview(navBar)
+        self.title = "게시판"
+        
+     
     
     }
     
