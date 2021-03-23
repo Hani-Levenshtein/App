@@ -10,9 +10,14 @@ import Firebase
 
 struct User {
     var identifier : String
-    var name : String
+    var nickname : String
     var consecutiveDay : Int
     var profileImage : String
-    var notification : Bool
     var gender : String
+    
+    struct notification {
+        var Message : Bool
+        var Feed : Bool
+        
+    }
 }

@@ -6,7 +6,12 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+
 class TabBarVC : UITabBarController{
+     
+    let db = Firestore.firestore()
     
     override func viewDidLoad(){
         super.viewDidLoad()
@@ -32,6 +37,7 @@ class TabBarVC : UITabBarController{
         thirdVC.tabBarItem = thirdTabBarItem
         fourthNC.tabBarItem = fourthTabBarItem
         fifthNC.tabBarItem = fifthTabBarItem
+        
+        self.selectedIndex = 2
     }
-    
 }

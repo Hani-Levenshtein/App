@@ -7,13 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37329F51260A46EB007DA957 /* SettingSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37329F50260A46EB007DA957 /* SettingSwitchCell.swift */; };
+		37329F55260A62F1007DA957 /* SettingAlertCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37329F54260A62F1007DA957 /* SettingAlertCell.swift */; };
+		37329F5F260A6381007DA957 /* SettingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37329F5E260A6381007DA957 /* SettingViewCell.swift */; };
 		3744F63025FF104B003C5B9C /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3744F62F25FF104B003C5B9C /* UIColor.swift */; };
 		377BB54425FEFE390093223C /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		379C9A9825F5FC9700B5FBDB /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379C9A9725F5FC9700B5FBDB /* MessageCell.swift */; };
 		379C9A9C25F5FCAA00B5FBDB /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379C9A9B25F5FCAA00B5FBDB /* ChatCell.swift */; };
 		379C9AAF25F60A5600B5FBDB /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379C9AAE25F60A5600B5FBDB /* UIView.swift */; };
+		37A26BED260743C1004BA463 /* nameAlertC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A26BEC260743C1004BA463 /* nameAlertC.swift */; };
+		37B3B5132601CC3B0076DD15 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37B3B5122601CC3B0076DD15 /* GoogleService-Info.plist */; };
 		37B8B2A825F6ADA600CCA714 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B8B2A725F6ADA600CCA714 /* LoginVC.swift */; };
-		37B8B2AC25F6AE3C00CCA714 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37B8B2AB25F6AE3C00CCA714 /* GoogleService-Info.plist */; };
 		37B8B2D925F75D8500CCA714 /* EmailSignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B8B2D825F75D8500CCA714 /* EmailSignUpVC.swift */; };
 		37B8B2DD25F75D9D00CCA714 /* EmailSignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B8B2DC25F75D9D00CCA714 /* EmailSignInVC.swift */; };
 		37BBFEDA25F84F89005A901B /* InfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BBFED925F84F89005A901B /* InfoVC.swift */; };
@@ -31,7 +35,7 @@
 		37E598ED25F4C70300414B76 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E598EC25F4C70300414B76 /* FeedCell.swift */; };
 		37E598F225F4C71900414B76 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E598F125F4C71900414B76 /* Feed.swift */; };
 		37E598F725F4C73000414B76 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E598F625F4C73000414B76 /* Message.swift */; };
-		37E598FD25F4C74B00414B76 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E598FC25F4C74B00414B76 /* Chat.swift */; };
+		37E598FD25F4C74B00414B76 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E598FC25F4C74B00414B76 /* Room.swift */; };
 		37E5990125F4C75800414B76 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E5990025F4C75800414B76 /* User.swift */; };
 		733D58FB537AB77E1852220D /* Pods_haniProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16458514058C4328299C596E /* Pods_haniProject.framework */; };
 /* End PBXBuildFile section */
@@ -69,13 +73,17 @@
 
 /* Begin PBXFileReference section */
 		16458514058C4328299C596E /* Pods_haniProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_haniProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		37329F50260A46EB007DA957 /* SettingSwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSwitchCell.swift; sourceTree = "<group>"; };
+		37329F54260A62F1007DA957 /* SettingAlertCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingAlertCell.swift; sourceTree = "<group>"; };
+		37329F5E260A6381007DA957 /* SettingViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewCell.swift; sourceTree = "<group>"; };
 		3744F5AD25FF079E003C5B9C /* FirebaseFirestore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseFirestore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3744F62F25FF104B003C5B9C /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		379C9A9725F5FC9700B5FBDB /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		379C9A9B25F5FCAA00B5FBDB /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 		379C9AAE25F60A5600B5FBDB /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		37A26BEC260743C1004BA463 /* nameAlertC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nameAlertC.swift; sourceTree = "<group>"; };
+		37B3B5122601CC3B0076DD15 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		37B8B2A725F6ADA600CCA714 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginVC.swift; path = Access/LoginVC.swift; sourceTree = "<group>"; };
-		37B8B2AB25F6AE3C00CCA714 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../.Trash/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		37B8B2D825F75D8500CCA714 /* EmailSignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSignUpVC.swift; sourceTree = "<group>"; };
 		37B8B2DC25F75D9D00CCA714 /* EmailSignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSignInVC.swift; sourceTree = "<group>"; };
 		37BBFED925F84F89005A901B /* InfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVC.swift; sourceTree = "<group>"; };
@@ -104,7 +112,7 @@
 		37E598EC25F4C70300414B76 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		37E598F125F4C71900414B76 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		37E598F625F4C73000414B76 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		37E598FC25F4C74B00414B76 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
+		37E598FC25F4C74B00414B76 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		37E5990025F4C75800414B76 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4D2313B510CE7E294D54A9F8 /* Pods-haniProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-haniProject.debug.xcconfig"; path = "Target Support Files/Pods-haniProject/Pods-haniProject.debug.xcconfig"; sourceTree = "<group>"; };
 		CEBB4DF0D880CD4F68034ED7 /* Pods-haniProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-haniProject.release.xcconfig"; path = "Target Support Files/Pods-haniProject/Pods-haniProject.release.xcconfig"; sourceTree = "<group>"; };
@@ -194,12 +202,12 @@
 			children = (
 				37E598F025F4C70C00414B76 /* Model */,
 				37E598C925F4C58000414B76 /* Cell */,
-				37D24CA925F4BA2800E44F45 /* ViewControllers */,
+				37D24CA925F4BA2800E44F45 /* Controllers */,
 				379C9AAD25F60A3900B5FBDB /* Resources */,
 				37D24C7E25F4B7E500E44F45 /* Info.plist */,
+				37B3B5122601CC3B0076DD15 /* GoogleService-Info.plist */,
 				37D24C7925F4B7E500E44F45 /* Assets.xcassets */,
 				37D24CAA25F4BA7300E44F45 /* TabBarVC.swift */,
-				37B8B2AB25F6AE3C00CCA714 /* GoogleService-Info.plist */,
 			);
 			path = haniProject;
 			sourceTree = "<group>";
@@ -222,16 +230,17 @@
 			path = haniProjectUITests;
 			sourceTree = "<group>";
 		};
-		37D24CA925F4BA2800E44F45 /* ViewControllers */ = {
+		37D24CA925F4BA2800E44F45 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				37B8B2A725F6ADA600CCA714 /* LoginVC.swift */,
 				37B8B2DC25F75D9D00CCA714 /* EmailSignInVC.swift */,
 				37B8B2D825F75D8500CCA714 /* EmailSignUpVC.swift */,
 				37BBFED925F84F89005A901B /* InfoVC.swift */,
+				37A26BEC260743C1004BA463 /* nameAlertC.swift */,
 				379C9A9F25F6030A00B5FBDB /* TabBar */,
 			);
-			path = ViewControllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		37E598C925F4C58000414B76 /* Cell */ = {
@@ -240,6 +249,9 @@
 				37E598EC25F4C70300414B76 /* FeedCell.swift */,
 				379C9A9725F5FC9700B5FBDB /* MessageCell.swift */,
 				379C9A9B25F5FCAA00B5FBDB /* ChatCell.swift */,
+				37329F50260A46EB007DA957 /* SettingSwitchCell.swift */,
+				37329F54260A62F1007DA957 /* SettingAlertCell.swift */,
+				37329F5E260A6381007DA957 /* SettingViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -249,7 +261,7 @@
 			children = (
 				37E598F125F4C71900414B76 /* Feed.swift */,
 				37E598F625F4C73000414B76 /* Message.swift */,
-				37E598FC25F4C74B00414B76 /* Chat.swift */,
+				37E598FC25F4C74B00414B76 /* Room.swift */,
 				37E5990025F4C75800414B76 /* User.swift */,
 			);
 			path = Model;
@@ -386,7 +398,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37D24C7A25F4B7E500E44F45 /* Assets.xcassets in Resources */,
-				37B8B2AC25F6AE3C00CCA714 /* GoogleService-Info.plist in Resources */,
+				37B3B5132601CC3B0076DD15 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,15 +489,19 @@
 				37B8B2DD25F75D9D00CCA714 /* EmailSignInVC.swift in Sources */,
 				37B8B2A825F6ADA600CCA714 /* LoginVC.swift in Sources */,
 				37E598F225F4C71900414B76 /* Feed.swift in Sources */,
+				37329F55260A62F1007DA957 /* SettingAlertCell.swift in Sources */,
 				37E5987725F4C22200414B76 /* SettingVC.swift in Sources */,
+				37329F5F260A6381007DA957 /* SettingViewCell.swift in Sources */,
 				37E5990125F4C75800414B76 /* User.swift in Sources */,
-				37E598FD25F4C74B00414B76 /* Chat.swift in Sources */,
+				37E598FD25F4C74B00414B76 /* Room.swift in Sources */,
 				37E5987C25F4C2CA00414B76 /* GraphVC.swift in Sources */,
+				37A26BED260743C1004BA463 /* nameAlertC.swift in Sources */,
 				37BBFEDA25F84F89005A901B /* InfoVC.swift in Sources */,
 				379C9A9C25F5FCAA00B5FBDB /* ChatCell.swift in Sources */,
 				37D24CAB25F4BA7300E44F45 /* TabBarVC.swift in Sources */,
 				37B8B2D925F75D8500CCA714 /* EmailSignUpVC.swift in Sources */,
 				37D24CB325F4BAFD00E44F45 /* BoardVC.swift in Sources */,
+				37329F51260A46EB007DA957 /* SettingSwitchCell.swift in Sources */,
 				379C9A9825F5FC9700B5FBDB /* MessageCell.swift in Sources */,
 				379C9AAF25F60A5600B5FBDB /* UIView.swift in Sources */,
 				37E598F725F4C73000414B76 /* Message.swift in Sources */,

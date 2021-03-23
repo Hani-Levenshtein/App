@@ -11,7 +11,6 @@ target 'haniProject' do
 	pod 'Firebase/Firestore'
 	pod 'Firebase/Messaging'
 	pod 'Firebase/Storage'
-	pod 'Firebase/InAppMessaging'
 	pod 'Firebase/Database'
 	pod 'Firebase/Core'
 

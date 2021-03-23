@@ -17,22 +17,26 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         //guard let _ = (scene as? UIWindowScene) else { return }
         //윈도우 씬을 가져온다.
-                guard let windowScene = (scene as? UIWindowScene) else { return }
-                
-                // 윈도우의 크기 설정
-                window = UIWindow(frame: UIScreen.main.bounds)
-                
-                let vc = LoginVC()
-
-                
-                // 뿌리 뷰컨트롤러를 설정
-                window?.rootViewController = UINavigationController(rootViewController: vc)
-                
-                // 설정한 윈도우를 보이게 끔 설정
-                window?.makeKeyAndVisible()
-                
-                // 윈도우씬 설정
-                window?.windowScene = windowScene
+            guard let windowScene = (scene as? UIWindowScene) else { return }
+            
+            // 윈도우의 크기 설정
+            window = UIWindow(frame: UIScreen.main.bounds)
+            
+        
+        if let loggedUsername = UserDefaults.standard.string(forKey: "username"){
+            let vc = TabBarVC()
+            window?.rootViewController = UINavigationController(rootViewController: vc)
+        }
+        else{
+            let vc = LoginVC()
+            window?.rootViewController = UINavigationController(rootViewController: vc)
+        }
+            
+            // 설정한 윈도우를 보이게 끔 설정
+            window?.makeKeyAndVisible()
+            
+            // 윈도우씬 설정
+            window?.windowScene = windowScene
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -69,8 +73,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         
         // change the root view controller to your specific view controller
-        let vc = TabBarVC()
-        
         window.rootViewController = vc
         
         UIView.transition(with: window,

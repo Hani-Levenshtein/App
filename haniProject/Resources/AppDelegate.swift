@@ -12,8 +12,9 @@ import GoogleSignIn
 import FBSDKCoreKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
-
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
       
         //Firebase
@@ -47,14 +48,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
       guard let authentication = user.authentication else { return }
       let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                         accessToken: authentication.accessToken)
-        
-        Auth.auth().signIn(with: credential) { (user, error) in
+
+        Auth.auth().signIn(with: credential) { (authResult, error) in
             if let error = error {
                 //...
                 print(error.localizedDescription)
                 return
             } else {
+                print("EmailSignUp Success")
+                let userID : String = (authResult?.user.uid)!
+                Firestore.firestore().collection("users").document(userID).setData([
+                "identifier" : userID,
+                "nickname" : NSNull(),
+                "consecutiveDay" : 0,
+                "profileImage" : NSNull(),
+                "gender" : NSNull(),
+                "notification" : [
+                    "message" : true,
+                    "Feed" : true
+                ]
+                ])
                 
+                let vc = TabBarVC()
+                vc.modalPresentationStyle = .currentContext
+                vc.modalTransitionStyle = .coverVertical
+            
+                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(vc)
+               
             }
      
         }
