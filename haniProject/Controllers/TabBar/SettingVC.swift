@@ -7,15 +7,14 @@
 
 import UIKit
 
-class SettingVC: UIViewController {
+class SettingVC: UIViewController{
 
-    
-    let cellIdentifier: String = "cell"
     private let tableView = UITableView()
     
     let account: [String] = ["로그아웃", "회원탈퇴"]
     let notification: [String] = ["메세지 알림", "피드 알림"]
     let infomation: [String] = ["헬스장 이용규칙","앱버전","문의","이용 약관","개인정보 취급방침","오픈소스 라이센스"]
+    let header: [String] = ["계정","알림","정보"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +22,10 @@ class SettingVC: UIViewController {
         tableView.dataSource = self
         tableView.backgroundColor = .white
         view.addSubview(tableView)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "SettingSwitchCell")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "SettingViewCell")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "SettingAlertCell")
+   
     }
     
     override func viewDidLayoutSubviews() {
@@ -49,7 +52,8 @@ extension SettingVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if (indexPath.section == 0) {
-            let cell = tableView.dequeueReusableCell(withIdentifier: SettingAlertCell.identifier, for: indexPath) as! SettingAlertCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: SettingAlertCell.identifier, for: indexPath) as!
+                SettingAlertCell
             cell.configure(text: account[indexPath.row])
             return cell
         }
@@ -59,7 +63,8 @@ extension SettingVC: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
         else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: SettingViewCell.identifier, for: indexPath) as! SettingViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: SettingViewCell.identifier, for: indexPath) as!
+                SettingViewCell
             cell.configure(text: infomation[indexPath.row])
             return cell
         }
@@ -68,13 +73,11 @@ extension SettingVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if (section == 0) { return "계정"}
-        else if(section == 1) {return "알림"}
-        else {return "정보"}
+        return header[section]
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return header.count
     }
     
 }

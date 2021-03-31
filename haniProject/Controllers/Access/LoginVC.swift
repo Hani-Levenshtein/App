@@ -57,6 +57,14 @@ class LoginVC : UIViewController  {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         
+        if Auth.auth().currentUser != nil {
+            let vc = TabBarVC()
+            vc.modalPresentationStyle = .currentContext
+            vc.modalTransitionStyle = .coverVertical
+        
+            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(vc)
+        }
+        
         //Google SignIn
         GIDSignIn.sharedInstance()?.presentingViewController = self
        

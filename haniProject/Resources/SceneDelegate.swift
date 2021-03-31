@@ -21,16 +21,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
             // 윈도우의 크기 설정
             window = UIWindow(frame: UIScreen.main.bounds)
-            
+      
         
-        if let loggedUsername = UserDefaults.standard.string(forKey: "username"){
-            let vc = TabBarVC()
-            window?.rootViewController = UINavigationController(rootViewController: vc)
-        }
-        else{
             let vc = LoginVC()
             window?.rootViewController = UINavigationController(rootViewController: vc)
-        }
+    
             
             // 설정한 윈도우를 보이게 끔 설정
             window?.makeKeyAndVisible()

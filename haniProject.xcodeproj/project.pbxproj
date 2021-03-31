@@ -16,6 +16,7 @@
 		379C9A9C25F5FCAA00B5FBDB /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379C9A9B25F5FCAA00B5FBDB /* ChatCell.swift */; };
 		379C9AAF25F60A5600B5FBDB /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379C9AAE25F60A5600B5FBDB /* UIView.swift */; };
 		37A26BED260743C1004BA463 /* nameAlertC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A26BEC260743C1004BA463 /* nameAlertC.swift */; };
+		37B1FC46260B6D7B00BDD2D0 /* AppVersionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B1FC45260B6D7B00BDD2D0 /* AppVersionVC.swift */; };
 		37B3B5132601CC3B0076DD15 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37B3B5122601CC3B0076DD15 /* GoogleService-Info.plist */; };
 		37B8B2A825F6ADA600CCA714 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B8B2A725F6ADA600CCA714 /* LoginVC.swift */; };
 		37B8B2D925F75D8500CCA714 /* EmailSignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B8B2D825F75D8500CCA714 /* EmailSignUpVC.swift */; };
@@ -82,6 +83,7 @@
 		379C9A9B25F5FCAA00B5FBDB /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 		379C9AAE25F60A5600B5FBDB /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		37A26BEC260743C1004BA463 /* nameAlertC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nameAlertC.swift; sourceTree = "<group>"; };
+		37B1FC45260B6D7B00BDD2D0 /* AppVersionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionVC.swift; sourceTree = "<group>"; };
 		37B3B5122601CC3B0076DD15 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		37B8B2A725F6ADA600CCA714 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginVC.swift; path = Access/LoginVC.swift; sourceTree = "<group>"; };
 		37B8B2D825F75D8500CCA714 /* EmailSignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSignUpVC.swift; sourceTree = "<group>"; };
@@ -175,6 +177,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		37B1FC44260B6D4200BDD2D0 /* SettingVCs */ = {
+			isa = PBXGroup;
+			children = (
+				37B1FC45260B6D7B00BDD2D0 /* AppVersionVC.swift */,
+			);
+			path = SettingVCs;
+			sourceTree = "<group>";
+		};
 		37D24C6425F4B7E400E44F45 = {
 			isa = PBXGroup;
 			children = (
@@ -233,6 +243,7 @@
 		37D24CA925F4BA2800E44F45 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				37B1FC44260B6D4200BDD2D0 /* SettingVCs */,
 				37B8B2A725F6ADA600CCA714 /* LoginVC.swift */,
 				37B8B2DC25F75D9D00CCA714 /* EmailSignInVC.swift */,
 				37B8B2D825F75D8500CCA714 /* EmailSignUpVC.swift */,
@@ -497,6 +508,7 @@
 				37E5987C25F4C2CA00414B76 /* GraphVC.swift in Sources */,
 				37A26BED260743C1004BA463 /* nameAlertC.swift in Sources */,
 				37BBFEDA25F84F89005A901B /* InfoVC.swift in Sources */,
+				37B1FC46260B6D7B00BDD2D0 /* AppVersionVC.swift in Sources */,
 				379C9A9C25F5FCAA00B5FBDB /* ChatCell.swift in Sources */,
 				37D24CAB25F4BA7300E44F45 /* TabBarVC.swift in Sources */,
 				37B8B2D925F75D8500CCA714 /* EmailSignUpVC.swift in Sources */,
@@ -669,6 +681,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NT53S7F6FB;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = haniProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -689,6 +702,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NT53S7F6FB;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = haniProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
