@@ -158,9 +158,9 @@
 		379C9A9F25F6030A00B5FBDB /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
+				37D24CB225F4BAFD00E44F45 /* BoardVC.swift */,
 				37E5988025F4C2F400414B76 /* RoutineVC.swift */,
 				37E5988525F4C32200414B76 /* ChatVC.swift */,
-				37D24CB225F4BAFD00E44F45 /* BoardVC.swift */,
 				37E5987B25F4C2CA00414B76 /* GraphVC.swift */,
 				37E5987625F4C22200414B76 /* SettingVC.swift */,
 			);

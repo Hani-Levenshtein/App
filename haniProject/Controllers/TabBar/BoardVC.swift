@@ -9,30 +9,40 @@ import UIKit
 import FirebaseFirestore
 import FirebaseAuth
 
-class BoardVC : UIViewController {
+class BoardVC: UIViewController {
     
     var db: Firestore!
-    var roomTableView : UITableView!
-    
+
+    var boardCollectionView: UICollectionView!
+        var cellId = "FeedCell"
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        db = Firestore.firestore()
-        view.backgroundColor = .gray
-        self.navigationItem.title = "게시판"
+
+        // Create an instance of UICollectionViewFlowLayout since you cant
+        // Initialize UICollectionView without a layout
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.itemSize = CGSize(width: view.frame.width, height: 700)
+
+        boardCollectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
+        boardCollectionView.dataSource = self
+        boardCollectionView.delegate = self
         
-    
+        boardCollectionView.showsVerticalScrollIndicator = false
+        self.view.addSubview(boardCollectionView)
+
     }
-    
 }
 
-struct room {
-
-    var identifier :String
-    var title : String
-    var numberOfPeople : Int
-    var master : String
-    var lastSentBy : String
-    var lastSentAt : Timestamp //(date: Date())
-    var lastContent : String
-    var userlist : [String]
+extension BoardVC: UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        <#code#>
+    }
+    
+ 
 }

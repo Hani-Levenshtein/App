@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SettingVC: UIViewController{
+class SettingVC: UIViewController {
 
     private let tableView = UITableView()
     
