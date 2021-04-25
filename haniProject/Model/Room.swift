@@ -9,12 +9,13 @@ import Foundation
 import Firebase
 
 struct Room {
-    var identifier :String
-    var title : String
-    var numberOfPeople : Int
-    var master : String
-    var lastSentBy : String
-    var lastSentAt : Timestamp //(date: Date())
-    var lastContent : String
-    var userlist : [String]
+    var identifier: String
+    var title: String
+    var peopleCount: Int
+    var master: String
+    var lastSentBy: String
+    var lastSentAt: Timestamp //(date: Date())
+    var lastContent: String
+    var userlist: [String]
+    
 }

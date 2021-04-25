@@ -13,7 +13,8 @@ struct Message {
     var type : String
     var sentAt : Timestamp
     var sentBy : String
+    var senderID: String
     var content : String
-    
+        
     
 }

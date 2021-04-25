@@ -144,10 +144,10 @@ NS_ASSUME_NONNULL_BEGIN
     // Opens AppStore if app isn't installed
     NSString *testURLString = [NSString stringWithFormat:@"%@://example.com", _canOpenURLScheme];
     NSURL *testURL = [NSURL URLWithString:testURLString];
-    if (![[UIApplication sharedApplication] canOpenURL:testURL]) {
-      [[UIApplication sharedApplication] openURL:_appStoreURL];
-      return NO;
-    }
+      if (![[UIApplication sharedApplication] canOpenURL:testURL]) {
+        [[UIApplication sharedApplication] openURL:_appStoreURL];
+        return NO;
+      }
   }
   
   // Transforms the request URL and opens it.
