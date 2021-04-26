@@ -1,5 +1,5 @@
 //
-//  ChatVC.swift
+//  RoomVC.swift
 //  haniProject
 //
 //  Created by Hani on 2021/03/07.
@@ -9,7 +9,7 @@ import UIKit
 import FirebaseFirestore
 import FirebaseAuth
 
-class ChatAndAlarmVC : UIViewController{
+class RoomVC : UIViewController{
   
     var db: Firestore!
     var auth = FirebaseAuth.Auth.auth()
@@ -60,7 +60,7 @@ class ChatAndAlarmVC : UIViewController{
     }
 }
 
-extension ChatAndAlarmVC {
+extension RoomVC {
     func setView() {
         self.view.backgroundColor = .white
         self.navigationItem.title = "채팅"
@@ -75,7 +75,7 @@ extension ChatAndAlarmVC {
 
 
 
-extension ChatAndAlarmVC: UICollectionViewDelegate,UICollectionViewDataSource {
+extension RoomVC: UICollectionViewDelegate,UICollectionViewDataSource {
     //Compulsory: numberOfItemsInSection, cellForItemAt
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         rooms.count

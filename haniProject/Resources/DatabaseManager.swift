@@ -30,9 +30,7 @@ class DatabaseManager {
                                             "likesCount": feed.likesCount,
                                             "viewsCount": feed.viewsCount
                                             ])
-        
-       
-        
+         
     }
     func createRoom(){
         /*

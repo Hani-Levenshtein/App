@@ -33,7 +33,11 @@ struct Feed {
         uploadBy: String,
    
         photo: [String],
-        hashtag: [String]
+        hashtag: [String],
+        
+        commentsCount: Int,
+        likesCount: Int,
+        viewsCount: Int
         ){
         
         self.identifier = identifier

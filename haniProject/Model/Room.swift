@@ -17,5 +17,5 @@ struct Room {
     var lastSentAt: Timestamp //(date: Date())
     var lastContent: String
     var userlist: [String]
-    
+    var profileImage : String
 }

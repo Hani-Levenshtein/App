@@ -10,15 +10,15 @@ import FirebaseFirestore
 
 class FeedCell: UICollectionViewCell {
     
-    static let identifier = "FeedCell"
-    let db = Firestore.firestore()
+    static let cellIdentifier = "FeedCell"
+    var db = Firestore.firestore()
     
     let contentStackView: UIStackView = {
         let contentStackView = UIStackView()
         contentStackView.axis  = NSLayoutConstraint.Axis.vertical
         contentStackView.alignment = UIStackView.Alignment.center
         contentStackView.distribution = UIStackView.Distribution.fillEqually
-        contentStackView.translatesAutoresizingMaskIntoConstraints = false;
+        contentStackView.translatesAutoresizingMaskIntoConstraints = false
         return contentStackView
     }()
     
@@ -29,7 +29,7 @@ class FeedCell: UICollectionViewCell {
         return profileImage
     }()
 
-    let nicknameLabel: UILabel = {
+    let uploadByLabel: UILabel = {
         let nickname = UILabel()
         nickname.font = UIFont.systemFont(ofSize: 12)
         nickname.textColor = UIColor.darkGray
@@ -38,8 +38,7 @@ class FeedCell: UICollectionViewCell {
         return nickname
     }()
     
-    let uploadTimeLabel: UILabel = {
-        
+    let uploadAtLabel: UILabel = {
         let uploadTime = UILabel()
         uploadTime.font = UIFont.systemFont(ofSize: 12)
         uploadTime.textColor = UIColor.darkGray
@@ -144,7 +143,6 @@ class FeedCell: UICollectionViewCell {
 
     func addViews(){
         
- 
         valueStackView.addSubview(likeImageView)
         valueStackView.addSubview(likeLabel)
         valueStackView.addSubview(commentImageView)
@@ -157,8 +155,8 @@ class FeedCell: UICollectionViewCell {
         //contentStackView.addSubview(contentImageView)
         
         addSubview(profileImageView)
-        addSubview(nicknameLabel)
-        addSubview(uploadTimeLabel)
+        addSubview(uploadByLabel)
+        addSubview(uploadAtLabel)
         addSubview(valueStackView)
         addSubview(contentStackView)
 
@@ -169,11 +167,11 @@ class FeedCell: UICollectionViewCell {
         profileImageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         profileImageView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
 
-        uploadTimeLabel.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        uploadTimeLabel.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+        uploadAtLabel.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        uploadAtLabel.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
         
-        nicknameLabel.leftAnchor.constraint(equalTo: profileImageView.rightAnchor).isActive = true
-        nicknameLabel.rightAnchor.constraint(equalTo: uploadTimeLabel.leftAnchor).isActive = true
+        uploadByLabel.leftAnchor.constraint(equalTo: profileImageView.rightAnchor).isActive = true
+        uploadByLabel.rightAnchor.constraint(equalTo: uploadAtLabel.leftAnchor).isActive = true
         
         valueStackView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
         valueStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true

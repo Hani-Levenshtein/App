@@ -56,7 +56,7 @@ class LoginVC : UIViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
-        
+
         if Auth.auth().currentUser != nil {
             let vc = TabBarVC()
             vc.modalPresentationStyle = .currentContext
