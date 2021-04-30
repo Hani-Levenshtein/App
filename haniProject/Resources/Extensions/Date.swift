@@ -22,11 +22,11 @@ extension Date {
         return formatter.date(from: utcString)
     }
     
-    static func dateToString(from date: Date) -> String {
+    func dateToString() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM-dd HH:mm"
         dateFormatter.timeZone = TimeZone(identifier: "UTC")
-        return dateFormatter.string(from: date)
+        return dateFormatter.string(from: self)
 
          }
 }

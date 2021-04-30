@@ -12,123 +12,96 @@ class FeedCell: UICollectionViewCell {
     
     static let cellIdentifier = "FeedCell"
     var db = Firestore.firestore()
-    
-    let contentStackView: UIStackView = {
-        let contentStackView = UIStackView()
-        contentStackView.axis  = NSLayoutConstraint.Axis.vertical
-        contentStackView.alignment = UIStackView.Alignment.center
-        contentStackView.distribution = UIStackView.Distribution.fillEqually
-        contentStackView.translatesAutoresizingMaskIntoConstraints = false
-        return contentStackView
-    }()
-    
+   
     let profileImageView: UIImageView = {
         let profileImage = UIImageView()
         profileImage.image = UIImage(named: "Profile")
+        profileImage.layer.cornerRadius = 10
+    
         profileImage.translatesAutoresizingMaskIntoConstraints = false
         return profileImage
     }()
-
+    
     let uploadByLabel: UILabel = {
-        let nickname = UILabel()
-        nickname.font = UIFont.systemFont(ofSize: 12)
-        nickname.textColor = UIColor.darkGray
-        nickname.text = "(이름 없음)"
-        nickname.translatesAutoresizingMaskIntoConstraints = false
-        return nickname
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.textColor = UIColor.darkGray
+        label.text = "(이름 없음)"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
     let uploadAtLabel: UILabel = {
-        let uploadTime = UILabel()
-        uploadTime.font = UIFont.systemFont(ofSize: 12)
-        uploadTime.textColor = UIColor.darkGray
-        uploadTime.text = "(이름 없음1)"
-        uploadTime.translatesAutoresizingMaskIntoConstraints = false
-
-        return uploadTime
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.textColor = UIColor.darkGray
+        label.text = "(이름 없음1)"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
-        
-    
-    class hashTagViewController: UIViewController {
-        
-    }
-    
-    
-    
-    
-    let hashTagLabel: UILabel = {
-        let hashTag = UILabel()
-        hashTag.textColor = UIColor.appColor(.pastelPink)
-        hashTag.font = UIFont.systemFont(ofSize: 14)
-        hashTag.translatesAutoresizingMaskIntoConstraints = false
-        return hashTag
+
+    let hashTagLabel: [UILabel] = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.textColor = UIColor.darkGray
+        label.text = "(이름 없음1)"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return [label]
     }()
     
     let contentLabel: UILabel = {
-        let content = UILabel()
-        content.textColor = UIColor.lightGray
-        content.font = UIFont.systemFont(ofSize: 14)
-        content.text = ""
-        content.translatesAutoresizingMaskIntoConstraints = false
-        return content
+        let label = UILabel()
+        label.textColor = UIColor.lightGray
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.numberOfLines = 5
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
-    let contentImageView: UIImageView = {
+    let contentImageView: [UIImageView] = {
         let contentImage = UIImageView()
         contentImage.translatesAutoresizingMaskIntoConstraints = false
-        return contentImage
-    }()
-
-    let valueStackView: UIStackView = {
-        let valueStackView = UIStackView()
-        valueStackView.axis  = NSLayoutConstraint.Axis.horizontal
-        valueStackView.alignment = UIStackView.Alignment.leading
-        valueStackView.distribution = UIStackView.Distribution.fillEqually
-        valueStackView.translatesAutoresizingMaskIntoConstraints = false;
-        return valueStackView
+        return [contentImage]
     }()
     
     let likeImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "Profile")
+        let imageView = UIImageView(image: UIImage(systemName: "heart"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
 
     let likeLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
-        label.numberOfLines = 3
+        label.textColor = .gray
+        label.numberOfLines = 1
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
     let commentImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "Profile")
+        let imageView = UIImageView(image: UIImage(named: "bubble.left.fill"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
 
     let commentLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
-        label.numberOfLines = 3
+        label.textColor = .gray
+        label.numberOfLines = 5
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
   
     let viewsImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "Profile")
+        let imageView = UIImageView(image: UIImage(named: "eye.fill"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
 
     let viewsLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
-        label.numberOfLines = 3
+        label.textColor = .gray
+        label.numberOfLines = 1
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -136,51 +109,59 @@ class FeedCell: UICollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        addViews()
+        addContentView()
         autoLayout()
     }
-
-    func addViews(){
-        
-        valueStackView.addSubview(likeImageView)
-        valueStackView.addSubview(likeLabel)
-        valueStackView.addSubview(commentImageView)
-        valueStackView.addSubview(commentLabel)
-        valueStackView.addSubview(viewsImageView)
-        valueStackView.addSubview(viewsLabel)
-        
-        
-        contentStackView.addSubview(contentLabel)
-        //contentStackView.addSubview(contentImageView)
-        
-        addSubview(profileImageView)
-        addSubview(uploadByLabel)
-        addSubview(uploadAtLabel)
-        addSubview(valueStackView)
-        addSubview(contentStackView)
-
-        
-    }
     
-    func autoLayout(){
-        profileImageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        profileImageView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+    private func addContentView(){
+        contentView.addSubview(profileImageView)
+        contentView.addSubview(uploadByLabel)
+        contentView.addSubview(uploadAtLabel)
+        contentView.addSubview(contentLabel)
+        contentView.addSubview(viewsImageView)
+        contentView.addSubview(viewsLabel)
+        contentView.addSubview(likeImageView)
+        contentView.addSubview(likeLabel)
+        contentView.addSubview(commentImageView)
+        contentView.addSubview(commentLabel)
+        contentView.backgroundColor = .white
+    }
 
-        uploadAtLabel.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        uploadAtLabel.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+    private func autoLayout(){
+        NSLayoutConstraint.activate([
+            profileImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 4),
+            profileImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 4),
+            profileImageView.bottomAnchor.constraint(equalTo: self.topAnchor, constant: 20),
+            profileImageView.trailingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            profileImageView.widthAnchor.constraint(equalToConstant: 20),
+            profileImageView.heightAnchor.constraint(equalToConstant: 20),
+                
+            uploadByLabel.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: 4),
+            uploadByLabel.trailingAnchor.constraint(equalTo: profileImageView.leadingAnchor, constant: 20),
+            uploadByLabel.widthAnchor.constraint(equalToConstant: 20),
+            
+            uploadAtLabel.leadingAnchor.constraint(equalTo: uploadByLabel.trailingAnchor, constant: 4),
+            uploadAtLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -4),
+            uploadAtLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 20),
+            
+            contentLabel.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 4),
+            contentLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 4),
+            
+            viewsImageView.topAnchor.constraint(equalTo: contentLabel.bottomAnchor, constant: 4),
+            viewsImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 4),
+            
+            viewsLabel.leadingAnchor.constraint(equalTo: viewsImageView.trailingAnchor, constant: 4),
+            viewsLabel.widthAnchor.constraint(equalToConstant: 10),
+            likeImageView.leadingAnchor.constraint(equalTo: viewsLabel.trailingAnchor, constant: 4),
+            likeImageView.widthAnchor.constraint(equalToConstant: 10),
+            likeLabel.leadingAnchor.constraint(equalTo: likeImageView.trailingAnchor, constant: 4),
+            likeLabel.widthAnchor.constraint(equalToConstant: 10),
+            commentImageView.leadingAnchor.constraint(equalTo: likeLabel.trailingAnchor, constant: 4),
+            commentImageView.widthAnchor.constraint(equalToConstant: 10),
+            commentLabel.leadingAnchor.constraint(equalTo: commentImageView.trailingAnchor, constant: 4),
+            commentLabel.widthAnchor.constraint(equalToConstant: 10),
         
-        uploadByLabel.leftAnchor.constraint(equalTo: profileImageView.rightAnchor).isActive = true
-        uploadByLabel.rightAnchor.constraint(equalTo: uploadAtLabel.leftAnchor).isActive = true
-        
-        valueStackView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
-        valueStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-  
-        contentStackView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
-        contentStackView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-        contentStackView.topAnchor.constraint(equalTo: profileImageView.bottomAnchor).isActive = true
-        contentStackView.bottomAnchor.constraint(equalTo: valueStackView.topAnchor).isActive = true
-
+            ])
     }
 
     required init?(coder aDecoder: NSCoder) {

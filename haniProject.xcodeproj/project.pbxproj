@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		37329F51260A46EB007DA957 /* SettingSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37329F50260A46EB007DA957 /* SettingSwitchCell.swift */; };
+		37329F51260A46EB007DA957 /* SettingAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37329F50260A46EB007DA957 /* SettingAccountCell.swift */; };
 		37329F55260A62F1007DA957 /* SettingAlertCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37329F54260A62F1007DA957 /* SettingAlertCell.swift */; };
-		37329F5F260A6381007DA957 /* SettingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37329F5E260A6381007DA957 /* SettingViewCell.swift */; };
+		37329F5F260A6381007DA957 /* SettingInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37329F5E260A6381007DA957 /* SettingInfoCell.swift */; };
 		3736B928261D84AB00FE62DB /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 3736B927261D84AB00FE62DB /* OrderedCollections */; };
 		3736B92A261D84AB00FE62DB /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = 3736B929261D84AB00FE62DB /* Collections */; };
 		3736B92C261D84AB00FE62DB /* DequeModule in Frameworks */ = {isa = PBXBuildFile; productRef = 3736B92B261D84AB00FE62DB /* DequeModule */; };
@@ -83,9 +83,9 @@
 
 /* Begin PBXFileReference section */
 		16458514058C4328299C596E /* Pods_haniProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_haniProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		37329F50260A46EB007DA957 /* SettingSwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSwitchCell.swift; sourceTree = "<group>"; };
+		37329F50260A46EB007DA957 /* SettingAccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingAccountCell.swift; sourceTree = "<group>"; };
 		37329F54260A62F1007DA957 /* SettingAlertCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingAlertCell.swift; sourceTree = "<group>"; };
-		37329F5E260A6381007DA957 /* SettingViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewCell.swift; sourceTree = "<group>"; };
+		37329F5E260A6381007DA957 /* SettingInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingInfoCell.swift; sourceTree = "<group>"; };
 		3744F5AD25FF079E003C5B9C /* FirebaseFirestore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseFirestore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3744F62F25FF104B003C5B9C /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		375D5E3B261BFEDD00D37591 /* AlarmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmCell.swift; sourceTree = "<group>"; };
@@ -282,9 +282,9 @@
 			children = (
 				37E598EC25F4C70300414B76 /* FeedCell.swift */,
 				379C9A9725F5FC9700B5FBDB /* MessageCell.swift */,
-				37329F50260A46EB007DA957 /* SettingSwitchCell.swift */,
+				37329F50260A46EB007DA957 /* SettingAccountCell.swift */,
 				37329F54260A62F1007DA957 /* SettingAlertCell.swift */,
-				37329F5E260A6381007DA957 /* SettingViewCell.swift */,
+				37329F5E260A6381007DA957 /* SettingInfoCell.swift */,
 				375D5E3B261BFEDD00D37591 /* AlarmCell.swift */,
 				375D5E45261C8D4C00D37591 /* RoomCell.swift */,
 			);
@@ -537,7 +537,7 @@
 				37329F55260A62F1007DA957 /* SettingAlertCell.swift in Sources */,
 				37E5987725F4C22200414B76 /* SettingVC.swift in Sources */,
 				375D5E3C261BFEDD00D37591 /* AlarmCell.swift in Sources */,
-				37329F5F260A6381007DA957 /* SettingViewCell.swift in Sources */,
+				37329F5F260A6381007DA957 /* SettingInfoCell.swift in Sources */,
 				37E5990125F4C75800414B76 /* User.swift in Sources */,
 				379F1807262649DC006AA935 /* CreateFeedVC.swift in Sources */,
 				37AB42622631CA74003CF8E0 /* SearchFeedVC.swift in Sources */,
@@ -551,7 +551,7 @@
 				37D24CAB25F4BA7300E44F45 /* TabBarVC.swift in Sources */,
 				37B8B2D925F75D8500CCA714 /* EmailSignUpVC.swift in Sources */,
 				37D24CB325F4BAFD00E44F45 /* FeedVC.swift in Sources */,
-				37329F51260A46EB007DA957 /* SettingSwitchCell.swift in Sources */,
+				37329F51260A46EB007DA957 /* SettingAccountCell.swift in Sources */,
 				379C9A9825F5FC9700B5FBDB /* MessageCell.swift in Sources */,
 				379C9AAF25F60A5600B5FBDB /* UIView.swift in Sources */,
 				37E598F725F4C73000414B76 /* Message.swift in Sources */,

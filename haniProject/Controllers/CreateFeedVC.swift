@@ -14,9 +14,11 @@ class CreateFeedVC: UIViewController, UITextViewDelegate {
     private let navigationBar: UINavigationBar = {
         let navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 44))
         let navigationItem = UINavigationItem(title: "글쓰기")
+        
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(cancelFeedButtonTapped))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(confirmFeedButtonTapped))
         navigationBar.items = [navigationItem]
+        navigationBar.backgroundColor = .white
         return navigationBar
     }()
     
@@ -69,8 +71,7 @@ class CreateFeedVC: UIViewController, UITextViewDelegate {
         navigationBar.bottomAnchor.constraint(equalTo:view.safeAreaLayoutGuide.topAnchor, constant: 44).isActive = true
         navigationBar.leadingAnchor.constraint(equalTo:view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         navigationBar.trailingAnchor.constraint(equalTo:view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        navigationBar.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor).isActive = true
-        
+         
         view.addSubview(scrollView)
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.topAnchor.constraint(equalTo: navigationBar.bottomAnchor).isActive = true

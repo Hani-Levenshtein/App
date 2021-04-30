@@ -7,9 +7,9 @@
 
 import UIKit
 
-class SettingSwitchCell: UITableViewCell {
+class SettingAccountCell: UITableViewCell {
     
-    static let identifier = "SettingSwitchCell"
+    static let cellIdentifier = "SettingAccountCell"
     
     private let rightSwitch: UISwitch = {
         let _switch = UISwitch()
@@ -18,7 +18,7 @@ class SettingSwitchCell: UITableViewCell {
         return _switch
     }()
     
-    private let leftLabel: UILabel = {
+    private let contentLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         return label
@@ -27,7 +27,7 @@ class SettingSwitchCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.backgroundColor = .white
-        contentView.addSubview(leftLabel)
+        contentView.addSubview(contentLabel)
         contentView.addSubview(rightSwitch)
     }
     
@@ -36,21 +36,21 @@ class SettingSwitchCell: UITableViewCell {
     }
     
     public func configure(text: String){
-        leftLabel.text = text
+        contentLabel.text = text
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        leftLabel.text = nil
+        contentLabel.text = nil
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
         let switchSize = rightSwitch.sizeThatFits(contentView.frame.size)
-        leftLabel.frame = CGRect(x: 5,
+        contentLabel.frame = CGRect(x: 5,
                                  y: 0,
-                                 width: 30,
+                                 width: 130,
                                  height: contentView.frame.size.height - 10)
         
         rightSwitch.frame = CGRect(x: contentView.frame.size.width-100,
