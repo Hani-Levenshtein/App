@@ -24,10 +24,9 @@ class FeedVC: UIViewController {
     private let navigationBar: UINavigationBar = {
         let navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 44))
         let navigationItem = UINavigationItem(title: "피드")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "탐색", style: .plain, target: self, action: #selector(searchFeedButtonTapped))
         navigationBar.tintColor = .white
         navigationBar.barTintColor = UIColor.appColor(.pastelPink)
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "탐색", style: .plain, target: self, action: #selector(searchFeedButtonTapped))
         navigationBar.items = [navigationItem]
         navigationBar.backgroundColor = UIColor.appColor(.pastelPink)
         return navigationBar
@@ -38,29 +37,23 @@ class FeedVC: UIViewController {
         flowLayout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 100), collectionViewLayout: flowLayout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = .gray
+        collectionView.backgroundColor = .white
         return collectionView
     }()
     
     let createFeedButton: UIButton = {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
-        //button.layer.cornerRadius = 0.5 * button.bounds.size.width
-        button.layer.shadowColor = UIColor.gray.cgColor
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 400))
+        
+        button.layer.cornerRadius = 0.5 * button.bounds.size.width
+        button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOpacity = 1.0
         button.layer.shadowOffset = CGSize(width: 3, height: 3)
-        //button.layer.shadowRadius = 6
-        
-        
-        button.layer.masksToBounds = true
-        
-        
-        
-        button.clipsToBounds = true
-        
-        
-        button.backgroundColor = .black
+        button.layer.shadowRadius = 0.5 * button.bounds.size.width
+        button.layer.masksToBounds = false
+ 
+        button.backgroundColor = .white
         button.setTitle("Button", for: .normal)
-        button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(.black, for: .normal)
         button.addTarget(self, action: #selector(createFeedButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -76,8 +69,10 @@ class FeedVC: UIViewController {
         navigationBar.translatesAutoresizingMaskIntoConstraints = false
         navigationBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         navigationBar.bottomAnchor.constraint(equalTo:view.safeAreaLayoutGuide.topAnchor, constant: 44).isActive = true
+        navigationBar.leadingAnchor.constraint(equalTo:view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        navigationBar.trailingAnchor.constraint(equalTo:view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         
-         
+        
         view.addSubview(scrollView)
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.topAnchor.constraint(equalTo: navigationBar.bottomAnchor).isActive = true
@@ -89,9 +84,8 @@ class FeedVC: UIViewController {
         view.addSubview(createFeedButton)
         NSLayoutConstraint.activate([
             createFeedButton.bottomAnchor.constraint(equalTo: scrollView.frameLayoutGuide.bottomAnchor, constant: -150),
-            createFeedButton.trailingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.trailingAnchor, constant: -150),
+            createFeedButton.trailingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.trailingAnchor, constant: -150)
         ])
-        
         
         scrollView.addSubview(boardCollectionView)
         NSLayoutConstraint.activate([
@@ -99,8 +93,7 @@ class FeedVC: UIViewController {
         boardCollectionView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
         boardCollectionView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
         boardCollectionView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-     
-           ])
+        ])
 
         boardCollectionView.delegate = self
         boardCollectionView.dataSource = self
@@ -145,7 +138,7 @@ class FeedVC: UIViewController {
     @objc private func searchFeedButtonTapped(sender: UIButton!){
         let vc = SearchFeedVC()
         vc.modalPresentationStyle = .fullScreen
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.present(vc,animated: true, completion: nil)
     }
 }
 

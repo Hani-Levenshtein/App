@@ -20,10 +20,11 @@ class SettingVC: UIViewController {
     let sections: [String] = ["계정","알림","정보"]
     
     let tableViewHeaderView: UIView = {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 150))
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 100))
         let underLine = UIView()
         underLine.backgroundColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1)
-        let profileImg = UIImageView(image: UIImage(named: "profile"))
+        view.backgroundColor = UIColor.appColor(.pastelPink)
+        let profileImg = UIImageView(image: UIImage(named: "profile.fill"))
         let nickLabel = UILabel()
         let db = Firestore.firestore()
         var userRef = Auth.auth().currentUser!.uid
@@ -69,6 +70,7 @@ class SettingVC: UIViewController {
         tableView.dataSource = self
         tableView.backgroundColor = .white
         view.addSubview(tableView)
+        tableView.tableHeaderView = tableViewHeaderView
         tableView.register(SettingAccountCell.self, forCellReuseIdentifier: SettingAccountCell.cellIdentifier)
         tableView.register(SettingInfoCell.self, forCellReuseIdentifier: SettingInfoCell.cellIdentifier)
         tableView.register(SettingAlertCell.self, forCellReuseIdentifier: SettingAlertCell.cellIdentifier)
@@ -127,12 +129,7 @@ extension SettingVC: UITableViewDelegate, UITableViewDataSource {
         return sections.count
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let sectionHeaderView: UIView = {
-            
-            
-        }
-    }
+
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat{
         return 88
