@@ -30,7 +30,9 @@
 		37B8B2A825F6ADA600CCA714 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B8B2A725F6ADA600CCA714 /* LoginVC.swift */; };
 		37B8B2D925F75D8500CCA714 /* EmailSignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B8B2D825F75D8500CCA714 /* EmailSignUpVC.swift */; };
 		37B8B2DD25F75D9D00CCA714 /* EmailSignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B8B2DC25F75D9D00CCA714 /* EmailSignInVC.swift */; };
+		37BB063E263EAE4300A25800 /* ProfileChangeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BB063D263EAE4300A25800 /* ProfileChangeVC.swift */; };
 		37BBFEDA25F84F89005A901B /* InfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BBFED925F84F89005A901B /* InfoVC.swift */; };
+		37CE6564263F134500B17234 /* DetailFeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CE6563263F134500B17234 /* DetailFeedVC.swift */; };
 		37D24C7125F4B7E400E44F45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D24C7025F4B7E400E44F45 /* AppDelegate.swift */; };
 		37D24C7325F4B7E400E44F45 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D24C7225F4B7E400E44F45 /* SceneDelegate.swift */; };
 		37D24C7A25F4B7E500E44F45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37D24C7925F4B7E500E44F45 /* Assets.xcassets */; };
@@ -103,7 +105,9 @@
 		37B8B2A725F6ADA600CCA714 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginVC.swift; path = Access/LoginVC.swift; sourceTree = "<group>"; };
 		37B8B2D825F75D8500CCA714 /* EmailSignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSignUpVC.swift; sourceTree = "<group>"; };
 		37B8B2DC25F75D9D00CCA714 /* EmailSignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSignInVC.swift; sourceTree = "<group>"; };
+		37BB063D263EAE4300A25800 /* ProfileChangeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileChangeVC.swift; sourceTree = "<group>"; };
 		37BBFED925F84F89005A901B /* InfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVC.swift; sourceTree = "<group>"; };
+		37CE6563263F134500B17234 /* DetailFeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFeedVC.swift; sourceTree = "<group>"; };
 		37D24C6D25F4B7E400E44F45 /* haniProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = haniProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37D24C7025F4B7E400E44F45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37D24C7225F4B7E400E44F45 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -273,6 +277,8 @@
 				379C9A9F25F6030A00B5FBDB /* TabBar */,
 				379F1806262649DC006AA935 /* CreateFeedVC.swift */,
 				37AB42612631CA74003CF8E0 /* SearchFeedVC.swift */,
+				37BB063D263EAE4300A25800 /* ProfileChangeVC.swift */,
+				37CE6563263F134500B17234 /* DetailFeedVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -528,6 +534,7 @@
 				37E5988625F4C32200414B76 /* RoomVC.swift in Sources */,
 				37A0AECF261A1DC3005B560C /* NSObject.swift in Sources */,
 				3744F63025FF104B003C5B9C /* UIColor.swift in Sources */,
+				37BB063E263EAE4300A25800 /* ProfileChangeVC.swift in Sources */,
 				37E598ED25F4C70300414B76 /* FeedCell.swift in Sources */,
 				37E5988125F4C2F400414B76 /* RoutineVC.swift in Sources */,
 				37B8B2DD25F75D9D00CCA714 /* EmailSignInVC.swift in Sources */,
@@ -547,6 +554,7 @@
 				379F180D262661C5006AA935 /* DatabaseManager.swift in Sources */,
 				37BBFEDA25F84F89005A901B /* InfoVC.swift in Sources */,
 				37B1FC46260B6D7B00BDD2D0 /* AppVersionVC.swift in Sources */,
+				37CE6564263F134500B17234 /* DetailFeedVC.swift in Sources */,
 				37AB425A2630F2EC003CF8E0 /* Date.swift in Sources */,
 				37D24CAB25F4BA7300E44F45 /* TabBarVC.swift in Sources */,
 				37B8B2D925F75D8500CCA714 /* EmailSignUpVC.swift in Sources */,

@@ -85,8 +85,7 @@ extension RoomVC: UICollectionViewDelegate,UICollectionViewDataSource {
         guard let roomCell = collectionView.dequeueReusableCell(withReuseIdentifier: "RoomCell", for: indexPath)
                 as? RoomCell else {return UICollectionViewCell()}
         
-        roomCell.configure()
-        
+
         
         return roomCell
     }

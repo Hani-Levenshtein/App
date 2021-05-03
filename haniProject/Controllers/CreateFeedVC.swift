@@ -106,13 +106,11 @@ class CreateFeedVC: UIViewController, UITextViewDelegate {
     
  
     @objc private func cancelFeedButtonTapped(){
-        print("qweqwe")
-        self.dismiss(animated: true, completion: nil)
+         self.dismiss(animated: true, completion: nil)
     }
     
     
     @objc private func confirmFeedButtonTapped(){
-        print("qweqw1111e")
         guard let title = titleTextField.text,
               let content = contentTextView.text
               else {return }

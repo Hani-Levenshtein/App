@@ -23,22 +23,22 @@ class SettingVC: UIViewController {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 100))
         let underLine = UIView()
         underLine.backgroundColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1)
-        view.backgroundColor = UIColor.appColor(.pastelPink)
-        let profileImg = UIImageView(image: UIImage(named: "profile.fill"))
+        //view.backgroundColor = UIColor.appColor(.pastelPink)
+        view.backgroundColor = .white
+        let profileImg = UIImageView(image: UIImage(systemName: "profile.fill"))
         let nickLabel = UILabel()
         let db = Firestore.firestore()
         var userRef = Auth.auth().currentUser!.uid
         db.collection("users").document(userRef).getDocument { (document, error) in
             if let document = document, document.exists {
-            
                 nickLabel.text = document.get("nickname") as? String ?? "sdfg"
-               
             } else {
-               
             }
         }
-     
-     
+
+        let gesture:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(changeProfileButtonTapped))
+        view.addGestureRecognizer(gesture)
+        view.layer.borderWidth=2
         view.addSubview(underLine)
         view.addSubview(profileImg)
         view.addSubview(nickLabel)
@@ -70,16 +70,23 @@ class SettingVC: UIViewController {
         tableView.dataSource = self
         tableView.backgroundColor = .white
         view.addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        
         tableView.tableHeaderView = tableViewHeaderView
         tableView.register(SettingAccountCell.self, forCellReuseIdentifier: SettingAccountCell.cellIdentifier)
         tableView.register(SettingInfoCell.self, forCellReuseIdentifier: SettingInfoCell.cellIdentifier)
         tableView.register(SettingAlertCell.self, forCellReuseIdentifier: SettingAlertCell.cellIdentifier)
-   
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.frame = view.bounds
+    }
+    
+    @objc private func changeProfileButtonTapped(sender: UIButton!){
+        let vc = ProfileChangeVC()
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc,animated: true, completion: nil)
     }
 }
 
@@ -101,13 +108,13 @@ extension SettingVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if (indexPath.section == 0) {
-            let cell = tableView.dequeueReusableCell(withIdentifier: SettingAlertCell.cellIdentifier, for: indexPath) as!
-                SettingAlertCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: SettingAccountCell.cellIdentifier, for: indexPath) as!
+                SettingAccountCell
             cell.configure(text: account[indexPath.row])
             return cell
         }
         else if(indexPath.section == 1){
-            let cell = tableView.dequeueReusableCell(withIdentifier: SettingAccountCell.cellIdentifier, for: indexPath) as! SettingAccountCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: SettingAlertCell.cellIdentifier, for: indexPath) as! SettingAlertCell
             cell.configure(text: alarm[indexPath.row])
             return cell
         }
@@ -129,11 +136,8 @@ extension SettingVC: UITableViewDelegate, UITableViewDataSource {
         return sections.count
     }
     
-
-    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat{
-        return 88
-        
+        return 20
     }
 }
 
