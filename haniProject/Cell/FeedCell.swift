@@ -15,6 +15,7 @@ class FeedCell: UICollectionViewCell {
    
     let profileImageView: UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 70, height: 70))
+        imageView.image = UIImage(systemName: "person.crop.circle.fill")?.withRenderingMode(.alwaysOriginal)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 35
@@ -23,25 +24,25 @@ class FeedCell: UICollectionViewCell {
     }()
     
     let uploadByLabel: UILabel = {
-        let label = UILabel()
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width-70, height: 70))
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.black
-        
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     let uploadAtLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 10)
-        label.textColor = UIColor.black
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 120, height: 70))
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.textColor = UIColor.gray
+        label.textAlignment = .right
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
     let hashTagLabel: [UILabel] = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 10)
+        label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.black
         label.text = "(이름 없음1)"
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -50,9 +51,9 @@ class FeedCell: UICollectionViewCell {
     
     let contentLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor.lightGray
+        label.textColor = UIColor.black
         label.font = UIFont.systemFont(ofSize: 12)
-        label.numberOfLines = 5
+        label.numberOfLines = 4
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -64,7 +65,9 @@ class FeedCell: UICollectionViewCell {
     }()
     
     let likeImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(systemName: "heart"))
+        let imageView = UIImageView(image: UIImage(systemName: "heart")?.withRenderingMode(.alwaysTemplate))
+        imageView.tintColor = UIColor.appColor(.pastelPink)
+        
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -78,7 +81,8 @@ class FeedCell: UICollectionViewCell {
     }()
 
     let commentImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(systemName: "bubble.left.fill"))
+        let imageView = UIImageView(image: UIImage(systemName: "bubble.left.fill")?.withRenderingMode(.alwaysTemplate))
+        imageView.tintColor = UIColor.appColor(.pastelPink)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -92,7 +96,8 @@ class FeedCell: UICollectionViewCell {
     }()
   
     let viewsImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(systemName: "eye.fill"))
+        let imageView = UIImageView(image: UIImage(systemName: "eye.fill")?.withRenderingMode(.alwaysTemplate))
+        imageView.tintColor = UIColor.appColor(.pastelPink)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -191,8 +196,33 @@ class FeedCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    public func configure(with model: Feed) {
+        
+          let userRef: String = model.uploadBy
+        
+        db.collection("users").document(userRef).getDocument{ [self] (document,error) in
+            if let document = document, document.exists {
+                self.uploadByLabel.text = document["nickname"] as? String ?? "이름 없음"
+               //cell.profileImageView.image = UIImage(systemName: document["profileImage"] as! String) ?? UIImage(systemName: "person.crop.circle.fill")
+                self.profileImageView.image = UIImage(systemName: "person.crop.circle.fill")?.withRenderingMode(.alwaysOriginal)
+            }
+        }
+            
+        uploadAtLabel.text = model.uploadAt.dateToString()
+        contentLabel.text = model.content
+        likeLabel.text = String(model.likesCount)
+        viewsLabel.text = String(model.viewsCount)
+        commentLabel.text = String(model.commentsCount)
+        //addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(detailFeedButtonTapped)))
+        //cell.hashTagLabel.text = ithFeed.hashtag
     }
+    /*
+    @objc private func detailFeedButtonTapped(sender: UIButton!){
+        print(5/3)
+        let vc = DetailFeedVC()
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+     */
 }
 

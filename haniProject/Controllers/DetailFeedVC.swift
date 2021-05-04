@@ -11,19 +11,22 @@ class DetailFeedVC: UIViewController {
     private let navigationBar: UINavigationBar = {
         let navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 44))
         let navigationItem = UINavigationItem(title: "피드")
-        
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "뒤로", style: .plain, target: self, action: #selector(cancelFeedButtonTapped))
-
         navigationBar.items = [navigationItem]
         navigationBar.backgroundColor = .white
         return navigationBar
     }()
     
-    private let scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        scrollView.clipsToBounds = true
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        return scrollView
+    let boardCollectionView: UICollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.itemSize = CGSize(width:  UIScreen.main.bounds.width, height: 50)
+        flowLayout.minimumLineSpacing = 1.0
+        flowLayout.minimumInteritemSpacing = 2.0
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.backgroundColor = UIColor.appColor(.pastelPink)
+    
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        return collectionView
     }()
     
     let profileImageView: UIImageView = {
@@ -119,6 +122,46 @@ class DetailFeedVC: UIViewController {
         return label
     }()
     
+    let feedStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.distribution = .equalCentering
+        stackView.alignment = .leading
+        stackView.spacing = 1
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.backgroundColor = . white
+        return stackView
+    }()
+    
+    let feedInfoStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.distribution = .equalCentering
+        stackView.alignment = .center
+        stackView.spacing = 1
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
+    let contentStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.distribution = .equalCentering
+        stackView.alignment = .center
+        stackView.spacing = 1
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
+    let countStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.distribution = .equalCentering
+        stackView.alignment = .center
+        stackView.spacing = 1
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+         return stackView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -129,20 +172,8 @@ class DetailFeedVC: UIViewController {
     
     private func addContentView(){
         view.addSubview(navigationBar)
-        view.addSubview(scrollView)
+   
         
-        scrollView.addSubview(profileImageView)
-        scrollView.addSubview(uploadByLabel)
-        scrollView.addSubview(uploadAtLabel)
-        
-        scrollView.addSubview(contentLabel)
-        
-        scrollView.addSubview(viewsImageView)
-        scrollView.addSubview(viewsLabel)
-        scrollView.addSubview(likeImageView)
-        scrollView.addSubview(likeLabel)
-        scrollView.addSubview(commentImageView)
-        scrollView.addSubview(commentLabel)
     }
     
     
@@ -151,18 +182,9 @@ class DetailFeedVC: UIViewController {
            navigationBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
            navigationBar.bottomAnchor.constraint(equalTo:view.safeAreaLayoutGuide.topAnchor, constant: 44),
            navigationBar.leadingAnchor.constraint(equalTo:view.safeAreaLayoutGuide.leadingAnchor),
-           navigationBar.trailingAnchor.constraint(equalTo:view.safeAreaLayoutGuide.trailingAnchor),
+           navigationBar.trailingAnchor.constraint(equalTo:view.safeAreaLayoutGuide.trailingAnchor)
     
-            scrollView.topAnchor.constraint(equalTo: navigationBar.bottomAnchor),
-            scrollView.bottomAnchor.constraint(equalTo:view.safeAreaLayoutGuide.bottomAnchor),
-            scrollView.leadingAnchor.constraint(equalTo:view.safeAreaLayoutGuide.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo:view.safeAreaLayoutGuide.trailingAnchor),
-     
-            
-            profileImageView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            profileImageView.leadingAnchor.constraint(equalTo:scrollView.leadingAnchor),
-            profileImageView.bottomAnchor.constraint(equalTo: scrollView.topAnchor, constant: 100),
-            profileImageView.trailingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 100)
+           
         ])
     }
     

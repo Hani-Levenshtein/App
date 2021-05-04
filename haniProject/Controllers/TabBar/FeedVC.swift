@@ -107,7 +107,7 @@ class FeedVC: UIViewController {
     private func autoLayout(){
         NSLayoutConstraint.activate([
             navigationBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            navigationBar.bottomAnchor.constraint(equalTo:view.safeAreaLayoutGuide.topAnchor, constant: 44),
+            navigationBar.bottomAnchor.constraint(equalTo:navigationBar.topAnchor, constant: 44),
             navigationBar.leadingAnchor.constraint(equalTo:view.safeAreaLayoutGuide.leadingAnchor),
             navigationBar.trailingAnchor.constraint(equalTo:view.safeAreaLayoutGuide.trailingAnchor),
        
@@ -117,8 +117,8 @@ class FeedVC: UIViewController {
             boardCollectionView.trailingAnchor.constraint(equalTo:view.safeAreaLayoutGuide.trailingAnchor),
             boardCollectionView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor),
            
-            createFeedButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -150),
-            createFeedButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -150),
+            //reateFeedButton.bottomAnchor.constraint(equalTo: boardCollectionView.frameLayoutGuide.bottomAnchor, constant: -150),
+            //createFeedButton.trailingAnchor.constraint(equalTo: boardCollectionView.frameLayoutGuide.trailingAnchor, constant: -150),
         ])
     }
     
@@ -133,6 +133,8 @@ class FeedVC: UIViewController {
         vc.modalPresentationStyle = .fullScreen
         self.present(vc,animated: true, completion: nil)
     }
+    
+  
 }
 
 extension FeedVC: UICollectionViewDataSource, UICollectionViewDelegate {
@@ -142,26 +144,8 @@ extension FeedVC: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeedCell.cellIdentifier, for: indexPath) as! FeedCell
-        
-        
         let ithFeed: Feed = self.feeds[indexPath.row]
-        let userRef: String = ithFeed.identifier
-        
-        db.collection("users").document(userRef).getDocument{ (document,error) in
-            if let document = document, document.exists {
-                cell.uploadByLabel.text = document["nickname"] as? String ?? "fghj"
-                cell.profileImageView.image = UIImage(named: document["profileImage"] as! String) ?? UIImage(named: "Profile")
-            }
-        }
-            
-        cell.uploadAtLabel.text = ithFeed.uploadAt.dateToString()
-        cell.contentLabel.text = ithFeed.content
-        cell.likeLabel.text = String(ithFeed.likesCount)
-        cell.viewsLabel.text = String(ithFeed.viewsCount)
-        cell.commentLabel.text = String(ithFeed.commentsCount)
-        
-        //cell.hashTagLabel.text = ithFeed.hashtag
-        
+        cell.configure(with: ithFeed)
         return cell
     }
 }
