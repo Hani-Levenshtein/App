@@ -9,9 +9,7 @@ import Foundation
 import Firebase
 
 class DatabaseManager {
-    
-    
-    
+
     static func addFeed(feed: Feed) {
         let db = Firestore.firestore()
         db.collection("feeds").document(feed.identifier).setData([
@@ -30,8 +28,13 @@ class DatabaseManager {
                                             "likesCount": feed.likesCount,
                                             "viewsCount": feed.viewsCount
                                             ])
-         
     }
+    
+    
+    
+    
+    
+    
     func createRoom(){
         /*
         db.collection("users").document(Auth.auth().currentUser!.uid).updateData([

@@ -67,19 +67,13 @@ class LoginVC : UIViewController  {
         
         //Google SignIn
         GIDSignIn.sharedInstance()?.presentingViewController = self
-       
-        
-    
-        //facebookLoginButton.delegate = self
-        
+
         view.addSubview(scrollView)
         scrollView.addSubview(imageView)
         scrollView.addSubview(googleSignInButton)
         scrollView.addSubview(emailSignUpButton)
         scrollView.addSubview(emailSignInButton)
-        //scrollerView.addSubview(googleSignInButton)
-        //scrollerView.addSubview(facebookLoginButton)
-        
+
     }
     
     override func viewDidLayoutSubviews() {
@@ -106,15 +100,7 @@ class LoginVC : UIViewController  {
                                   y: emailSignUpButton.bottom+10,
                                   width: scrollView.width-60,
                                  height: 50)
-        
-        
-        /*
-        facebookSignInButton.frame = CGRect(x: 30,
-                                y: googleSignInButton.bottom+10,
-                                  width: scrollerView.width-60,
-                                height: 50)
-        */
-       
+
     }
     @objc private func googleSignInButtonTapped(sender: UIButton!) {
         GIDSignIn.sharedInstance().signIn()

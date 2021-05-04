@@ -1,14 +1,15 @@
 //
-//  Message.swift
+//  Comment.swift
 //  haniProject
 //
-//  Created by Hani on 2021/03/07.
+//  Created by Hani on 2021/05/04.
 //
 
 import Foundation
+
 import Firebase
 
-struct Message {
+struct Comment {
     var identifier : String
     var type : String
     var sentAt : Date

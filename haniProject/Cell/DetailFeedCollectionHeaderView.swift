@@ -1,49 +1,50 @@
 //
-//  FeedCell.swift
+//  DetailFeedCollectionHeaderView.swift
 //  haniProject
 //
-//  Created by Hani on 2021/03/07.
+//  Created by Hani on 2021/05/05.
 //
 
 import UIKit
 import FirebaseFirestore
+import FirebaseAuth
 
-class FeedCell: UICollectionViewCell {
+class DetailFeedCollectionHeaderView: UICollectionReusableView {
     
-    static let cellIdentifier = "FeedCell"
-    var db = Firestore.firestore()
-   
+    static let viewIdentifier = "DetailFeedCollectionHeaderView"
+    var db: Firestore!
+    
     let profileImageView: UIImageView = {
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 70, height: 70))
-        imageView.image = UIImage(systemName: "person.crop.circle.fill")?.withRenderingMode(.alwaysOriginal)
+        let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 35
+        imageView.layer.cornerRadius = 50
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
     let uploadByLabel: UILabel = {
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width-70, height: 70))
+        let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12)
-        label.textColor = UIColor.black
+        label.textColor = UIColor.darkGray
+        label.text = "(이름 없음)"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     let uploadAtLabel: UILabel = {
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 120, height: 70))
-        label.font = UIFont.systemFont(ofSize: 12)
-        label.textColor = UIColor.gray
-        label.textAlignment = .right
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 10)
+        label.textColor = UIColor.darkGray
+        label.text = "(이름 없음1)"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
     let hashTagLabel: [UILabel] = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 12)
-        label.textColor = UIColor.black
+        label.font = UIFont.systemFont(ofSize: 10)
+        label.textColor = UIColor.darkGray
         label.text = "(이름 없음1)"
         label.translatesAutoresizingMaskIntoConstraints = false
         return [label]
@@ -51,9 +52,9 @@ class FeedCell: UICollectionViewCell {
     
     let contentLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor.black
+        label.textColor = UIColor.lightGray
         label.font = UIFont.systemFont(ofSize: 12)
-        label.numberOfLines = 4
+        label.numberOfLines = 5
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -65,9 +66,7 @@ class FeedCell: UICollectionViewCell {
     }()
     
     let likeImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(systemName: "heart")?.withRenderingMode(.alwaysTemplate))
-        imageView.tintColor = UIColor.appColor(.pastelPink)
-        
+        let imageView = UIImageView(image: UIImage(systemName: "heart"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -81,8 +80,7 @@ class FeedCell: UICollectionViewCell {
     }()
 
     let commentImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(systemName: "bubble.left.fill")?.withRenderingMode(.alwaysTemplate))
-        imageView.tintColor = UIColor.appColor(.pastelPink)
+        let imageView = UIImageView(image: UIImage(named: "bubble.left.fill"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -90,14 +88,13 @@ class FeedCell: UICollectionViewCell {
     let commentLabel: UILabel = {
         let label = UILabel()
         label.textColor = .gray
-        label.numberOfLines = 1
+        label.numberOfLines = 5
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
   
     let viewsImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(systemName: "eye.fill")?.withRenderingMode(.alwaysTemplate))
-        imageView.tintColor = UIColor.appColor(.pastelPink)
+        let imageView = UIImageView(image: UIImage(named: "eye.fill"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -109,7 +106,7 @@ class FeedCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-
+    
     let feedStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -155,12 +152,12 @@ class FeedCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         addContentView()
-        //autoLayout()
+        autoLayout()
     }
     
     private func addContentView(){
         
-        contentView.addSubview(feedStackView)
+        addSubview(feedStackView)
         
         feedStackView.addArrangedSubview(feedInfoStackView)
         feedStackView.addArrangedSubview(contentStackView)
@@ -179,46 +176,53 @@ class FeedCell: UICollectionViewCell {
         countStackView.addArrangedSubview(likeLabel)
         countStackView.addArrangedSubview(commentImageView)
         countStackView.addArrangedSubview(commentLabel)
+        
     }
 
     private func autoLayout(){
         NSLayoutConstraint.activate([
-            feedStackView.topAnchor.constraint(equalTo: contentView.bottomAnchor),
-            feedStackView.bottomAnchor.constraint(equalTo:contentView.bottomAnchor),
-            feedStackView.leadingAnchor.constraint(equalTo:contentView.leadingAnchor),
-            feedStackView.trailingAnchor.constraint(equalTo:contentView.trailingAnchor),
-            feedStackView.widthAnchor.constraint(equalTo: contentView.widthAnchor)
-        ])
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        feedStackView.frame = contentView.bounds
+            feedStackView.topAnchor.constraint(equalTo: topAnchor),
+            feedStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            feedStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            feedStackView.trailingAnchor.constraint(equalTo: trailingAnchor)
+           
+            ])
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func configure(with model: Feed) {
+    public func configure(with feedIdentifier: String) {
         
-          let userRef: String = model.uploadBy
-        
-        db.collection("users").document(userRef).getDocument{ [self] (document,error) in
-            if let document = document, document.exists {
-                self.uploadByLabel.text = document["nickname"] as? String ?? "이름 없음"
-               //cell.profileImageView.image = UIImage(systemName: document["profileImage"] as! String) ?? UIImage(systemName: "person.crop.circle.fill")
-                self.profileImageView.image = UIImage(systemName: "person.crop.circle.fill")?.withRenderingMode(.alwaysOriginal)
-            }
-        }
+        db = Firestore.firestore()
+        db.collection("feeds").document(feedIdentifier).getDocument{ [self] (document,error) in
+            guard let document = document else { return }
             
-        uploadAtLabel.text = model.uploadAt.dateToString()
-        contentLabel.text = model.content
-        likeLabel.text = String(model.likesCount)
-        viewsLabel.text = String(model.viewsCount)
-        commentLabel.text = String(model.commentsCount)
-         //cell.hashTagLabel.text = ithFeed.hashtag
-    }
+            feedStackView.addArrangedSubview(feedInfoStackView)
+            feedStackView.addArrangedSubview(contentStackView)
+            feedStackView.addArrangedSubview(countStackView)
+            
+            feedInfoStackView.addArrangedSubview(profileImageView)
+            feedInfoStackView.addArrangedSubview(uploadByLabel)
+            feedInfoStackView.addArrangedSubview(uploadAtLabel)
+     
+            contentStackView.addArrangedSubview(contentLabel)
   
+            countStackView.addArrangedSubview(viewsImageView)
+            countStackView.addArrangedSubview(viewsLabel)
+            countStackView.addArrangedSubview(likeImageView)
+            countStackView.addArrangedSubview(likeLabel)
+            countStackView.addArrangedSubview(commentImageView)
+            countStackView.addArrangedSubview(commentLabel)
+            
+            profileImageView.image = document["profileIamge"] as? UIImage ?? UIImage()
+            uploadAtLabel.text = (document["uploadAt"] as? Date)?.dateToString()
+            uploadByLabel.text = document["uploadBy"] as? String
+            contentLabel.text = document["content"] as? String
+            commentLabel.text = document["commentsCount"] as? String
+            likeLabel.text = document["likesCount"] as? String
+            viewsLabel.text = document["viewsCount"] as? String
+        }
+    }
 }
-

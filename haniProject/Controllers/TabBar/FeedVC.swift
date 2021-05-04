@@ -32,9 +32,9 @@ class FeedVC: UIViewController {
         flowLayout.itemSize = CGSize(width:  UIScreen.main.bounds.width, height: 300)
         flowLayout.minimumLineSpacing = 1.0
         flowLayout.minimumInteritemSpacing = 2.0
+        
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.backgroundColor = UIColor.appColor(.pastelPink)
-        
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
@@ -63,8 +63,7 @@ class FeedVC: UIViewController {
         
         addContentView()
         autoLayout()
-        
-        boardCollectionView.frame = view.bounds
+
         db = Firestore.firestore()
         db.collection("feeds").addSnapshotListener { [self] (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else {
@@ -90,7 +89,6 @@ class FeedVC: UIViewController {
             }
             self.boardCollectionView.reloadData()
         }
-        
     }
     
     private func addContentView(){
@@ -98,12 +96,7 @@ class FeedVC: UIViewController {
         view.addSubview(createFeedButton)
         view.addSubview(boardCollectionView)
     }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        boardCollectionView.frame = view.bounds
-    }
-    
+
     private func autoLayout(){
         NSLayoutConstraint.activate([
             navigationBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -133,25 +126,32 @@ class FeedVC: UIViewController {
         vc.modalPresentationStyle = .fullScreen
         self.present(vc,animated: true, completion: nil)
     }
-    
-  
 }
 
-extension FeedVC: UICollectionViewDataSource, UICollectionViewDelegate {
+extension FeedVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return feeds.count
     }
-    
+}
+
+extension FeedVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeedCell.cellIdentifier, for: indexPath) as! FeedCell
-        let ithFeed: Feed = self.feeds[indexPath.row]
-        cell.configure(with: ithFeed)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeedCell.cellIdentifier, for: indexPath) as? FeedCell else { fatalError("asd") }
+        cell.configure(with: feeds[indexPath.row])
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        print("tapped")
+        let vc = DetailFeedVC()
+        vc.feedIdentifier = feeds[indexPath.row].identifier
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
 extension FeedVC: UICollectionViewDelegateFlowLayout {
      func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width:  UIScreen.main.bounds.width, height: 200)
+        return CGSize(width:  collectionView.frame.width, height: 200)
     }
 }

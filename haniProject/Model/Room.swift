@@ -14,7 +14,7 @@ struct Room {
     var peopleCount: Int
     var master: String
     var lastSentBy: String
-    var lastSentAt: Timestamp //(date: Date())
+    var lastSentAt: Date
     var lastContent: String
     var userlist: [String]
     var profileImage : String
