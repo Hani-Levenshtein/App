@@ -8,27 +8,31 @@
 import UIKit
 class GraphVC: UIViewController {
     
-    let firstView: UIView = {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+    let firstView: UIImageView = {
+        let view = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
         view.backgroundColor = .red
-         return view
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
-    let secondView: UIView = {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+    let secondView: UIImageView = {
+        let view = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
         view.backgroundColor = .cyan
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    let thirdView: UIView = {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 20))
+    let thirdView: UIImageView = {
+        let view = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 20))
         view.backgroundColor = .magenta
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    let fourthView: UIView = {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 40))
+    let fourthView: UIImageView = {
+        let view = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 40))
         view.backgroundColor = .orange
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
@@ -39,12 +43,14 @@ class GraphVC: UIViewController {
         stackView.layer.borderColor = .none
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.clipsToBounds = true
+        stackView.layer.masksToBounds = true
         stackView.backgroundColor = .white
+        
         stackView.axis = .horizontal
+        stackView.spacing = 5
+        
         stackView.distribution = .equalCentering
         stackView.alignment = .center
-        stackView.spacing = 1
-        
         
         return stackView
     }()
@@ -57,7 +63,7 @@ class GraphVC: UIViewController {
         stackView.addArrangedSubview(secondView)
         stackView.addArrangedSubview(thirdView)
         stackView.addArrangedSubview(fourthView)
-        stackView.bounds = stackView.frame
+        stackView.frame = view.bounds
         autoLayout()
     }
     private func autoLayout(){

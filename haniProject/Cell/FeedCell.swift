@@ -155,7 +155,7 @@ class FeedCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         addContentView()
-        //autoLayout()
+        autoLayout()
     }
     
     private func addContentView(){
@@ -183,27 +183,22 @@ class FeedCell: UICollectionViewCell {
 
     private func autoLayout(){
         NSLayoutConstraint.activate([
-            feedStackView.topAnchor.constraint(equalTo: contentView.bottomAnchor),
-            feedStackView.bottomAnchor.constraint(equalTo:contentView.bottomAnchor),
-            feedStackView.leadingAnchor.constraint(equalTo:contentView.leadingAnchor),
-            feedStackView.trailingAnchor.constraint(equalTo:contentView.trailingAnchor),
+            feedStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            feedStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            feedStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            feedStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             feedStackView.widthAnchor.constraint(equalTo: contentView.widthAnchor)
         ])
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        feedStackView.frame = contentView.bounds
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+ 
+    
     public func configure(with model: Feed) {
-        
-          let userRef: String = model.uploadBy
-        
+        let userRef: String = model.uploadBy
         db.collection("users").document(userRef).getDocument{ [self] (document,error) in
             if let document = document, document.exists {
                 self.uploadByLabel.text = document["nickname"] as? String ?? "이름 없음"
@@ -211,14 +206,13 @@ class FeedCell: UICollectionViewCell {
                 self.profileImageView.image = UIImage(systemName: "person.crop.circle.fill")?.withRenderingMode(.alwaysOriginal)
             }
         }
-            
         uploadAtLabel.text = model.uploadAt.dateToString()
         contentLabel.text = model.content
         likeLabel.text = String(model.likesCount)
         viewsLabel.text = String(model.viewsCount)
         commentLabel.text = String(model.commentsCount)
+  
          //cell.hashTagLabel.text = ithFeed.hashtag
     }
-  
 }
 

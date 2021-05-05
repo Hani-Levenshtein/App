@@ -13,17 +13,17 @@ class CommentCell: UICollectionViewCell {
     var db = Firestore.firestore()
    
     let profileImageView: UIImageView = {
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 70, height: 70))
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
         imageView.image = UIImage(systemName: "person.crop.circle.fill")?.withRenderingMode(.alwaysOriginal)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 35
+        imageView.layer.cornerRadius = 10
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
     let uploadByLabel: UILabel = {
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width-70, height: 70))
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width-20, height: 20))
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.black
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -77,8 +77,7 @@ class CommentCell: UICollectionViewCell {
             feedStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
             feedStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
             feedStackView.trailingAnchor.constraint(equalTo: trailingAnchor)
-           
-            ])
+        ])
     }
 
     required init?(coder aDecoder: NSCoder) {

@@ -9,9 +9,9 @@ import UIKit
 
 import FirebaseFirestore
 
-class DetailFeedVC: UINavigationController {
+class DetailFeedVC: UIViewController {
     
-    var feedIdentifier: String = "none"
+    var feedIdentifier: String = "getFromFeedVC"
     var comments: [Comment] = []
     let db = Firestore.firestore()
     
@@ -24,13 +24,13 @@ class DetailFeedVC: UINavigationController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.backgroundColor = UIColor.appColor(.pastelPink)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        
         return collectionView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "피드"
+      
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "뒤로", style: .plain, target: self, action: #selector(cancelFeedButtonTapped))
         boardCollectionView.register(CommentCell.self, forCellWithReuseIdentifier: CommentCell.cellIdentifier)
         boardCollectionView.register(DetailFeedCollectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: DetailFeedCollectionHeaderView.viewIdentifier)
@@ -49,7 +49,7 @@ class DetailFeedVC: UINavigationController {
     private func autoLayout() {
         NSLayoutConstraint.activate([
             boardCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            boardCollectionView.bottomAnchor.constraint(equalTo:view.safeAreaLayoutGuide.topAnchor, constant: 44),
+            boardCollectionView.bottomAnchor.constraint(equalTo:view.safeAreaLayoutGuide.bottomAnchor),
             boardCollectionView.leadingAnchor.constraint(equalTo:view.safeAreaLayoutGuide.leadingAnchor),
             boardCollectionView.trailingAnchor.constraint(equalTo:view.safeAreaLayoutGuide.trailingAnchor)
         ])
@@ -81,7 +81,7 @@ extension DetailFeedVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
          case UICollectionView.elementKindSectionHeader:
-           guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ㅁㄴㅇ",
+            guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: DetailFeedCollectionHeaderView.viewIdentifier,
                for: indexPath) as? DetailFeedCollectionHeaderView else { fatalError("Invalid view type") }
             headerView.configure(with: feedIdentifier)
             return headerView

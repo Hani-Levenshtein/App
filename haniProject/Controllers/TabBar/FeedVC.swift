@@ -63,7 +63,11 @@ class FeedVC: UIViewController {
         
         addContentView()
         autoLayout()
-
+        configure()
+       
+    }
+    
+    private func configure(){
         db = Firestore.firestore()
         db.collection("feeds").addSnapshotListener { [self] (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else {
@@ -110,8 +114,8 @@ class FeedVC: UIViewController {
             boardCollectionView.trailingAnchor.constraint(equalTo:view.safeAreaLayoutGuide.trailingAnchor),
             boardCollectionView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor),
            
-            //reateFeedButton.bottomAnchor.constraint(equalTo: boardCollectionView.frameLayoutGuide.bottomAnchor, constant: -150),
-            //createFeedButton.trailingAnchor.constraint(equalTo: boardCollectionView.frameLayoutGuide.trailingAnchor, constant: -150),
+            createFeedButton.bottomAnchor.constraint(equalTo: boardCollectionView.frameLayoutGuide.bottomAnchor, constant: -150),
+            createFeedButton.trailingAnchor.constraint(equalTo: boardCollectionView.frameLayoutGuide.trailingAnchor, constant: -150),
         ])
     }
     
@@ -138,16 +142,19 @@ extension FeedVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeedCell.cellIdentifier, for: indexPath) as? FeedCell else { fatalError("asd") }
         cell.configure(with: feeds[indexPath.row])
-        return cell
+          return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        print("tapped")
+
         let vc = DetailFeedVC()
         vc.feedIdentifier = feeds[indexPath.row].identifier
-        self.navigationController?.pushViewController(vc, animated: true)
+        vc.modalPresentationStyle = .fullScreen
+
+        self.present(vc,animated: true, completion: nil)
+        //navigationController?.pushViewController(vc, animated: true)
     }
+    
 }
 
 extension FeedVC: UICollectionViewDelegateFlowLayout {
