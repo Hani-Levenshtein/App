@@ -21,14 +21,18 @@ class SettingVC: UIViewController {
     
     let tableViewHeaderView: UIView = {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 100))
-        let underLine = UIView()
-        underLine.backgroundColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1)
-        //view.backgroundColor = UIColor.appColor(.pastelPink)
         view.backgroundColor = .white
-        let profileImg = UIImageView(image: UIImage(systemName: "profile.fill"))
+        view.isUserInteractionEnabled = true
+        let profileImg = UIImageView(image: UIImage(systemName: "person.crop.circle.fill")?.withRenderingMode(.alwaysOriginal))
+        profileImg.contentMode = .scaleAspectFill
+        profileImg.clipsToBounds = true
+        profileImg.layer.cornerRadius = 35
+        profileImg.translatesAutoresizingMaskIntoConstraints = false
+        
         let nickLabel = UILabel()
+        
         let db = Firestore.firestore()
-        var userRef = Auth.auth().currentUser!.uid
+        let userRef = Auth.auth().currentUser!.uid
         db.collection("users").document(userRef).getDocument { (document, error) in
             if let document = document, document.exists {
                 nickLabel.text = document.get("nickname") as? String ?? "sdfg"
@@ -38,28 +42,23 @@ class SettingVC: UIViewController {
 
         let gesture:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(changeProfileButtonTapped))
         view.addGestureRecognizer(gesture)
-        view.layer.borderWidth=2
-        view.addSubview(underLine)
+        view.layer.borderWidth=0.5
+   
         view.addSubview(profileImg)
         view.addSubview(nickLabel)
         
         nickLabel.translatesAutoresizingMaskIntoConstraints = false
         profileImg.translatesAutoresizingMaskIntoConstraints = false
-        underLine.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             profileImg.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5),
-            profileImg.widthAnchor.constraint(equalToConstant: 60),
-            profileImg.heightAnchor.constraint(equalToConstant: 60),
+            profileImg.widthAnchor.constraint(equalToConstant: 70),
+            profileImg.heightAnchor.constraint(equalToConstant: 70),
             profileImg.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             
             nickLabel.leadingAnchor.constraint(equalTo: profileImg.trailingAnchor, constant: 13),
             nickLabel.centerYAnchor.constraint(equalTo: profileImg.centerYAnchor),
-            
-            underLine.heightAnchor.constraint(equalToConstant: 0.5),
-            underLine.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            underLine.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            underLine.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+
         ])
         return view
     }()
@@ -83,10 +82,11 @@ class SettingVC: UIViewController {
         tableView.frame = view.bounds
     }
     
-    @objc private func changeProfileButtonTapped(sender: UIButton!){
+    @objc private func changeProfileButtonTapped(sender: UITapGestureRecognizer!){
+        print("sdfsdf")
         let vc = ProfileChangeVC()
         vc.modalPresentationStyle = .fullScreen
-        self.present(vc,animated: true, completion: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

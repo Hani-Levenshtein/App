@@ -14,11 +14,11 @@ class FeedCell: UICollectionViewCell {
     var db = Firestore.firestore()
    
     let profileImageView: UIImageView = {
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 70, height: 70))
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
         imageView.image = UIImage(systemName: "person.crop.circle.fill")?.withRenderingMode(.alwaysOriginal)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 35
+        imageView.layer.cornerRadius = 25
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -53,7 +53,7 @@ class FeedCell: UICollectionViewCell {
         let label = UILabel()
         label.textColor = UIColor.black
         label.font = UIFont.systemFont(ofSize: 12)
-        label.numberOfLines = 4
+        label.numberOfLines = 3
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -67,7 +67,6 @@ class FeedCell: UICollectionViewCell {
     let likeImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(systemName: "heart")?.withRenderingMode(.alwaysTemplate))
         imageView.tintColor = UIColor.appColor(.pastelPink)
-        
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -118,6 +117,12 @@ class FeedCell: UICollectionViewCell {
         stackView.spacing = 1
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.backgroundColor = . white
+        
+        stackView.layer.cornerRadius = 20
+        stackView.layer.shadowColor = UIColor(hex: 0xD1CDC7, alpha: 0.5).cgColor
+        stackView.layer.shadowOpacity = 1.0
+        stackView.layer.shadowOffset = CGSize(width: 6, height: 6)
+        
         return stackView
     }()
     
@@ -171,8 +176,7 @@ class FeedCell: UICollectionViewCell {
         feedInfoStackView.addArrangedSubview(uploadAtLabel)
  
         contentStackView.addArrangedSubview(contentLabel)
-        //contentStackView.addArrangedSubview(commentImageView)
-       
+
         countStackView.addArrangedSubview(viewsImageView)
         countStackView.addArrangedSubview(viewsLabel)
         countStackView.addArrangedSubview(likeImageView)
@@ -183,20 +187,21 @@ class FeedCell: UICollectionViewCell {
 
     private func autoLayout(){
         NSLayoutConstraint.activate([
+            profileImageView.widthAnchor.constraint(equalToConstant: 50),
+            profileImageView.heightAnchor.constraint(equalToConstant: 50),
+            
             feedStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
             feedStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            feedStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            feedStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            feedStackView.widthAnchor.constraint(equalTo: contentView.widthAnchor)
+            feedStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 25),
+            feedStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -25),
+            feedStackView.widthAnchor.constraint(equalToConstant: contentView.width - 50)
         ])
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
- 
-    
+
     public func configure(with model: Feed) {
         let userRef: String = model.uploadBy
         db.collection("users").document(userRef).getDocument{ [self] (document,error) in
@@ -211,8 +216,6 @@ class FeedCell: UICollectionViewCell {
         likeLabel.text = String(model.likesCount)
         viewsLabel.text = String(model.viewsCount)
         commentLabel.text = String(model.commentsCount)
-  
-         //cell.hashTagLabel.text = ithFeed.hashtag
     }
 }
 

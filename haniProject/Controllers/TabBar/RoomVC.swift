@@ -6,8 +6,9 @@
 //
 
 import UIKit
-import FirebaseFirestore
 import FirebaseAuth
+import FirebaseFirestore
+
 
 class RoomVC : UIViewController{
   

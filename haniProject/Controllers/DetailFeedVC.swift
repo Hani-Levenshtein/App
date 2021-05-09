@@ -30,7 +30,7 @@ class DetailFeedVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "피드"
-      
+        view.backgroundColor = .white
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "뒤로", style: .plain, target: self, action: #selector(cancelFeedButtonTapped))
         boardCollectionView.register(CommentCell.self, forCellWithReuseIdentifier: CommentCell.cellIdentifier)
         boardCollectionView.register(DetailFeedCollectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: DetailFeedCollectionHeaderView.viewIdentifier)
@@ -48,6 +48,7 @@ class DetailFeedVC: UIViewController {
     
     private func autoLayout() {
         NSLayoutConstraint.activate([
+            
             boardCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             boardCollectionView.bottomAnchor.constraint(equalTo:view.safeAreaLayoutGuide.bottomAnchor),
             boardCollectionView.leadingAnchor.constraint(equalTo:view.safeAreaLayoutGuide.leadingAnchor),
@@ -80,13 +81,16 @@ extension DetailFeedVC: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
+        
          case UICollectionView.elementKindSectionHeader:
             guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: DetailFeedCollectionHeaderView.viewIdentifier,
                for: indexPath) as? DetailFeedCollectionHeaderView else { fatalError("Invalid view type") }
             headerView.configure(with: feedIdentifier)
             return headerView
+            
         case UICollectionView.elementKindSectionFooter:
             assert(false, "Invalid element type")
+            
          default:
            assert(false, "Invalid element type")
          }
