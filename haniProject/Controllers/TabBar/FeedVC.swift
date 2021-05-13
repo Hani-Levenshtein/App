@@ -54,6 +54,7 @@ class FeedVC: UIViewController {
         boardCollectionView.register(FeedCell.self, forCellWithReuseIdentifier: FeedCell.cellIdentifier)
         boardCollectionView.delegate = self
         boardCollectionView.dataSource = self
+
         
         addContentView()
         autoLayout()
@@ -92,18 +93,16 @@ class FeedVC: UIViewController {
 
     private func autoLayout(){
         NSLayoutConstraint.activate([
-     
-            boardCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            boardCollectionView.bottomAnchor.constraint(equalTo:view.safeAreaLayoutGuide.bottomAnchor),
-            boardCollectionView.leadingAnchor.constraint(equalTo:view.safeAreaLayoutGuide.leadingAnchor),
-            boardCollectionView.trailingAnchor.constraint(equalTo:view.safeAreaLayoutGuide.trailingAnchor),
-            boardCollectionView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor),
-           
             createFeedButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -80),
             createFeedButton.trailingAnchor.constraint(equalTo:  view.trailingAnchor, constant: -60),
             createFeedButton.widthAnchor.constraint(equalToConstant: 50),
             createFeedButton.heightAnchor.constraint(equalToConstant: 50)
         ])
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        boardCollectionView.frame = view.bounds
     }
     
     @objc private func createFeedButtonTapped(sender: UIButton!){

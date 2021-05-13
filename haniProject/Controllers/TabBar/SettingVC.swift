@@ -75,13 +75,14 @@ class SettingVC: UIViewController {
         tableView.register(SettingAccountCell.self, forCellReuseIdentifier: SettingAccountCell.cellIdentifier)
         tableView.register(SettingInfoCell.self, forCellReuseIdentifier: SettingInfoCell.cellIdentifier)
         tableView.register(SettingAlertCell.self, forCellReuseIdentifier: SettingAlertCell.cellIdentifier)
+       
     }
-    
+  
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.frame = view.bounds
     }
-    
+  
     @objc private func changeProfileButtonTapped(sender: UITapGestureRecognizer!){
         print("sdfsdf")
         let vc = ProfileChangeVC()

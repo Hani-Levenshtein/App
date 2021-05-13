@@ -27,20 +27,51 @@ class DetailFeedVC: UIViewController {
         return collectionView
     }()
     
+    let optionMenu: UIAlertController = {
+            let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+      
+        let deleteAction = UIAlertAction(title: "대화하기", style: .default) {
+            (action: UIAlertAction!) in
+            /*
+            DatabaseManager.addChat()
+            */
+        }
+        
+           let saveAction = UIAlertAction(title: "신고하기", style: .destructive) {
+            (action: UIAlertAction!) in
+            let vc = reportVC()
+            vc.modalPresentationStyle = .fullScreen
+            DetailFeedVC.pushViewController(vc, animated: true)
+       
+      
+        }
+           let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {
+               (alert: UIAlertAction!) -> Void in
+         })
+
+           optionMenu.addAction(deleteAction)
+           optionMenu.addAction(saveAction)
+           optionMenu.addAction(cancelAction)
+           
+        return optionMenu
+    }()
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "피드"
         view.backgroundColor = .white
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "뒤로", style: .plain, target: self, action: #selector(cancelFeedButtonTapped))
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image:  UIImage(systemName:"ellipsis"), style: .plain, target: self, action: #selector(rightButtonTapped))
+   
         boardCollectionView.register(CommentCell.self, forCellWithReuseIdentifier: CommentCell.cellIdentifier)
         boardCollectionView.register(DetailFeedCollectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: DetailFeedCollectionHeaderView.viewIdentifier)
         boardCollectionView.delegate = self
         boardCollectionView.dataSource = self
         addContentView()
         autoLayout()
-        //get comment 
     }
-    
+
     private func addContentView() {
         view.addSubview(boardCollectionView)
         
@@ -48,7 +79,6 @@ class DetailFeedVC: UIViewController {
     
     private func autoLayout() {
         NSLayoutConstraint.activate([
-            
             boardCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             boardCollectionView.bottomAnchor.constraint(equalTo:view.safeAreaLayoutGuide.bottomAnchor),
             boardCollectionView.leadingAnchor.constraint(equalTo:view.safeAreaLayoutGuide.leadingAnchor),
@@ -59,7 +89,19 @@ class DetailFeedVC: UIViewController {
     @objc private func cancelFeedButtonTapped() {
         self.navigationController?.popViewController(animated: true)
     }
-   
+    
+
+    @objc private func rightButtonTapped() {
+        self.present(optionMenu, animated: true, completion: nil)
+    }
+    
+    func reportButtonTapped(){
+        let vc = reportVC()
+        vc.modalPresentationStyle = .fullScreen
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+  
 }
 
 extension DetailFeedVC: UICollectionViewDataSource {

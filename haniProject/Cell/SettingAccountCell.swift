@@ -10,7 +10,6 @@ import UIKit
 class SettingAccountCell: UITableViewCell {
     
     static let cellIdentifier = "SettingAccountCell"
-
     
     private let contentLabel: UILabel = {
         let label = UILabel()
@@ -22,12 +21,7 @@ class SettingAccountCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.backgroundColor = .white
         contentView.addSubview(contentLabel)
-        NSLayoutConstraint.activate([
-            
-            //contentLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-           
-            contentLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5)
-        ])
+   
     }
     
     required init?(coder: NSCoder) {
@@ -38,5 +32,14 @@ class SettingAccountCell: UITableViewCell {
         contentLabel.text = text
     }
     
-  
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        contentLabel.frame = CGRect(x: 5,
+                                 y: 0,
+                                 width: 130,
+                                 height: contentView.frame.size.height - 10)
+        
+       
+    }
 }

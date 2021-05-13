@@ -21,6 +21,8 @@ class DetailFeedCollectionHeaderView: UICollectionReusableView {
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 35
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        
         return imageView
     }()
     
@@ -191,7 +193,7 @@ class DetailFeedCollectionHeaderView: UICollectionReusableView {
             feedStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
             feedStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
             feedStackView.trailingAnchor.constraint(equalTo: trailingAnchor)
-           
+        
             ])
     }
 

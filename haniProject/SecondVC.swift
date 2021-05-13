@@ -1,13 +1,12 @@
 //
-//  GraphVC.swift
+//  SecondVC.swift
 //  haniProject
 //
-//  Created by Hani on 2021/03/07.
+//  Created by Hani on 2021/05/12.
 //
 
 import UIKit
-class GraphVC: UIViewController {
-    
+class SecondVC: UIViewController {
     
     let createFeedButton: UIButton = {
         let button = UIButton()
@@ -26,11 +25,11 @@ class GraphVC: UIViewController {
     
     let firstView: UILabel = {
         let view = UILabel()
-        view.backgroundColor = .red
+        view.backgroundColor = .blue
         view.translatesAutoresizingMaskIntoConstraints = false
         view.clipsToBounds = true
         view.contentMode = .scaleAspectFill
-        view.text = "1 Hani Levenshtein"
+        view.text = "2 Hani Levenshtein"
         view.textAlignment = .center
         return view
     }()
@@ -63,7 +62,7 @@ class GraphVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("1 viewDidLoad")
+        print("2 viewDidLoad")
         view.backgroundColor = .white
         view.addSubview(stackView)
         view.addSubview(createFeedButton)
@@ -73,23 +72,23 @@ class GraphVC: UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
-        print("1 viewWillAppear")
+        print("2 viewWillAppear")
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        print("1 viewDidAppear")
+        print("2 viewDidAppear")
         print("***************")
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        print("1 viewWillDisappear")
+        print("2 viewWillDisappear")
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        print("1 viewDidDisappear")
+        print("2 viewDidDisappear")
     }
-
     
+
     private func autoLayout(){
         NSLayoutConstraint.activate([
 
@@ -111,9 +110,7 @@ class GraphVC: UIViewController {
     }
     
     @objc private func searchFeedButtonTapped(_ sender: UIButton){
-        let vc = SecondVC()
-         vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true)
+        self.dismiss(animated: true)
     }
 }
 
