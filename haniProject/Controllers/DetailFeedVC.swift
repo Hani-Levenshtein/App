@@ -28,23 +28,39 @@ class DetailFeedVC: UIViewController {
     }()
     
     let optionMenu: UIAlertController = {
-            let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-      
+        let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+
+        
         let deleteAction = UIAlertAction(title: "대화하기", style: .default) {
-            (action: UIAlertAction!) in
-            /*
-            DatabaseManager.addChat()
-            */
+            (action) in
+            
+            
+            
+            
+            
         }
         
            let saveAction = UIAlertAction(title: "신고하기", style: .destructive) {
-            (action: UIAlertAction!) in
-            let vc = reportVC()
-            vc.modalPresentationStyle = .fullScreen
-            DetailFeedVC.pushViewController(vc, animated: true)
-       
+            (action) in
+
       
+           }
+        
+        
+        let ㅁction = UIAlertAction(title: "신고하기", style: .destructive) {
+         (action) in
+             let vc = reportVC()
+             vc.modalPresentationStyle = .fullScreen
+         DetailFeedVC().present(vc, animated: true)
+    
+   
         }
+        
+        
+        
+        
+        
+        
            let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {
                (alert: UIAlertAction!) -> Void in
          })
@@ -99,6 +115,9 @@ class DetailFeedVC: UIViewController {
         let vc = reportVC()
         vc.modalPresentationStyle = .fullScreen
         self.navigationController?.pushViewController(vc, animated: true)
+        
+  
+        
     }
     
   

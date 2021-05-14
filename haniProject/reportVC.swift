@@ -22,7 +22,7 @@ class reportVC: UIViewController {
     }
     
     @objc private func cancelFeedButtonTapped() {
-        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true)
     }
     
     

@@ -20,7 +20,6 @@ class FeedVC: UIViewController {
         flowLayout.itemSize = CGSize(width:  UIScreen.main.bounds.width, height: 150)
         flowLayout.minimumLineSpacing = 1.0
         flowLayout.minimumInteritemSpacing = 2.0
-        
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.backgroundColor = .white
         collectionView.translatesAutoresizingMaskIntoConstraints = false
