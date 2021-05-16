@@ -17,7 +17,7 @@
 		375D5E3C261BFEDD00D37591 /* AlarmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375D5E3B261BFEDD00D37591 /* AlarmCell.swift */; };
 		375D5E46261C8D4C00D37591 /* RoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375D5E45261C8D4C00D37591 /* RoomCell.swift */; };
 		377BB54425FEFE390093223C /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		378A3E92264E5F8F00B5C0DD /* messageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378A3E91264E5F8F00B5C0DD /* messageVC.swift */; };
+		378A3E92264E5F8F00B5C0DD /* MessageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378A3E91264E5F8F00B5C0DD /* MessageVC.swift */; };
 		378E7818264C230600A248E4 /* reportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E7817264C230600A248E4 /* reportVC.swift */; };
 		37913272264112AC0029844F /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37913271264112AC0029844F /* Comment.swift */; };
 		37913276264115160029844F /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37913275264115160029844F /* CommentCell.swift */; };
@@ -98,7 +98,7 @@
 		3744F62F25FF104B003C5B9C /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		375D5E3B261BFEDD00D37591 /* AlarmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmCell.swift; sourceTree = "<group>"; };
 		375D5E45261C8D4C00D37591 /* RoomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCell.swift; sourceTree = "<group>"; };
-		378A3E91264E5F8F00B5C0DD /* messageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = messageVC.swift; sourceTree = "<group>"; };
+		378A3E91264E5F8F00B5C0DD /* MessageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageVC.swift; sourceTree = "<group>"; };
 		378E7817264C230600A248E4 /* reportVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reportVC.swift; sourceTree = "<group>"; };
 		37913271264112AC0029844F /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		37913275264115160029844F /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
@@ -257,7 +257,7 @@
 				37D24CAA25F4BA7300E44F45 /* TabBarVC.swift */,
 				3798CC36264B5313006EEF54 /* SecondVC.swift */,
 				378E7817264C230600A248E4 /* reportVC.swift */,
-				378A3E91264E5F8F00B5C0DD /* messageVC.swift */,
+				378A3E91264E5F8F00B5C0DD /* MessageVC.swift */,
 			);
 			path = haniProject;
 			sourceTree = "<group>";
@@ -549,7 +549,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				378A3E92264E5F8F00B5C0DD /* messageVC.swift in Sources */,
+				378A3E92264E5F8F00B5C0DD /* MessageVC.swift in Sources */,
 				37E5988625F4C32200414B76 /* RoomVC.swift in Sources */,
 				37A0AECF261A1DC3005B560C /* NSObject.swift in Sources */,
 				3744F63025FF104B003C5B9C /* UIColor.swift in Sources */,

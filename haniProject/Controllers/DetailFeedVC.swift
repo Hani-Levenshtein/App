@@ -6,12 +6,12 @@
 //
 
 import UIKit
-
+import Firebase
 import FirebaseFirestore
 
 class DetailFeedVC: UIViewController {
     
-    var feedIdentifier: String = "getFromFeedVC"
+    var feed: Feed? = nil
     var comments: [Comment] = []
     let db = Firestore.firestore()
     
@@ -27,50 +27,7 @@ class DetailFeedVC: UIViewController {
         return collectionView
     }()
     
-    let optionMenu: UIAlertController = {
-        let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
 
-        
-        let deleteAction = UIAlertAction(title: "대화하기", style: .default) {
-            (action) in
-            
-            
-            
-            
-            
-        }
-        
-           let saveAction = UIAlertAction(title: "신고하기", style: .destructive) {
-            (action) in
-
-      
-           }
-        
-        
-        let ㅁction = UIAlertAction(title: "신고하기", style: .destructive) {
-         (action) in
-             let vc = reportVC()
-             vc.modalPresentationStyle = .fullScreen
-         DetailFeedVC().present(vc, animated: true)
-    
-   
-        }
-        
-        
-        
-        
-        
-        
-           let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {
-               (alert: UIAlertAction!) -> Void in
-         })
-
-           optionMenu.addAction(deleteAction)
-           optionMenu.addAction(saveAction)
-           optionMenu.addAction(cancelAction)
-           
-        return optionMenu
-    }()
  
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,18 +65,53 @@ class DetailFeedVC: UIViewController {
     
 
     @objc private func rightButtonTapped() {
+        
+        let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        if self.feed?.uploadBy == Auth.auth().currentUser!.uid {
+            let deleteAction = UIAlertAction(title: "글 삭제", style: .default) {
+                [weak self] _ in
+                DatabaseManager.deleteFeed((self?.feed)!)
+                self?.navigationController?.popViewController(animated: true)
+            }
+            
+               let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {
+                   (alert: UIAlertAction!) -> Void in
+               })
+                optionMenu.addAction(deleteAction)
+                optionMenu.addAction(cancelAction)
+        }
+        else {
+            let chatAction = UIAlertAction(title: "대화하기", style: .default) {
+                [weak self] _ in
+                let vc = MessageVC()
+                vc.room = DatabaseManager.addRoom((self?.feed)!)
+                vc.modalPresentationStyle = .fullScreen
+          
+                self?.parent?.navigationController?.pushViewController(vc, animated: true)
+            }
+            
+               let reportAction = UIAlertAction(title: "신고하기", style: .destructive) {
+                [weak self] _ in
+                let vc = reportVC()
+                vc.modalPresentationStyle = .fullScreen
+                self?.parent?.present(vc, animated: true)
+            }
+            
+            
+               let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {
+                   (alert: UIAlertAction!) -> Void in
+             })
+               optionMenu.addAction(chatAction)
+               optionMenu.addAction(reportAction)
+               optionMenu.addAction(cancelAction)
+        }
+   
         self.present(optionMenu, animated: true, completion: nil)
-    }
-    
-    func reportButtonTapped(){
-        let vc = reportVC()
-        vc.modalPresentationStyle = .fullScreen
-        self.navigationController?.pushViewController(vc, animated: true)
         
-  
         
     }
-    
+
   
 }
 
@@ -127,15 +119,17 @@ extension DetailFeedVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return comments.count
     }
-}
-
-extension DetailFeedVC: UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CommentCell.cellIdentifier, for: indexPath) as? CommentCell else {fatalError("qwe")}
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CommentCell.cellIdentifier, for: indexPath) as? CommentCell else {fatalError("DetailFeedVC CommentCell Error")}
         cell.configure(with: comments[indexPath.row])
         return cell
     }
     
+}
+
+extension DetailFeedVC: UICollectionViewDelegate {
+   
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: 300)
     }
@@ -146,7 +140,7 @@ extension DetailFeedVC: UICollectionViewDelegate {
          case UICollectionView.elementKindSectionHeader:
             guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: DetailFeedCollectionHeaderView.viewIdentifier,
                for: indexPath) as? DetailFeedCollectionHeaderView else { fatalError("Invalid view type") }
-            headerView.configure(with: feedIdentifier)
+            headerView.configure(feed!)
             return headerView
             
         case UICollectionView.elementKindSectionFooter:

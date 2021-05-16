@@ -132,7 +132,7 @@ extension FeedVC: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = DetailFeedVC()
-        vc.feedIdentifier = feeds[indexPath.row].identifier
+        vc.feed = feeds[indexPath.row]
         vc.modalPresentationStyle = .fullScreen
         self.navigationController?.pushViewController(vc, animated: true)
     }

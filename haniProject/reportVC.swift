@@ -11,11 +11,9 @@ class reportVC: UIViewController {
 
     
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.backgroundColor = .white
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "뒤로", style: .plain, target: self, action: #selector(cancelFeedButtonTapped))
         
         

@@ -9,7 +9,7 @@ import Foundation
 
 struct Feed {
     var identifier: String
-    
+        
     var title: String
     var content: String
     

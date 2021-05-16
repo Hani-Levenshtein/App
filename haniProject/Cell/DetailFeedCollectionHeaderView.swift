@@ -201,27 +201,24 @@ class DetailFeedCollectionHeaderView: UICollectionReusableView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func configure(with feedIdentifier: String) {
+    public func configure(_ feed: Feed) {
         
         db = Firestore.firestore()
 
-        db.collection("feeds").document(feedIdentifier).getDocument{ [self] (document,error) in
-            guard let document = document else { return }
+        let userRef: String = feed.uploadBy
+        uploadAtLabel.text = feed.uploadAt.dateToString()
+        contentLabel.text = feed.content
+        commentLabel.text = String(feed.commentsCount)
+        likeLabel.text = String(feed.likesCount)
+        viewsLabel.text = String(feed.viewsCount)
 
-            let userRef: String = document["uploadBy"] as? String ?? "asd"
-            uploadAtLabel.text = (document["uploadAt"] as? Date ?? Date())?.dateToString()
-            contentLabel.text = document["content"] as? String
-            commentLabel.text = String(document["commentsCount"] as? Int ?? 0)
-            likeLabel.text = String(document["likesCount"] as? Int ?? 0)
-            viewsLabel.text = String(document["viewsCount"] as? Int ?? 0)
-
-            db.collection("users").document(userRef).getDocument{ [self] (document,error) in
-                if let document = document, document.exists {
-                    self.uploadByLabel.text = document["nickname"] as? String ?? "이름 없음"
-                   //cell.profileImageView.image = UIImage(systemName: document["profileImage"] as! String) ?? UIImage(systemName: "person.crop.circle.fill")
-                    self.profileImageView.image = UIImage(systemName: "person.crop.circle.fill")?.withRenderingMode(.alwaysOriginal)
-                }
+        db.collection("users").document(userRef).getDocument{ [self] (document,error) in
+            if let document = document, document.exists {
+                self.uploadByLabel.text = document["nickname"] as? String ?? "이름 없음"
+               //cell.profileImageView.image = UIImage(systemName: document["profileImage"] as! String) ?? UIImage(systemName: "person.crop.circle.fill")
+                self.profileImageView.image = UIImage(systemName: "person.crop.circle.fill")?.withRenderingMode(.alwaysOriginal)
             }
         }
+
     }
 }
