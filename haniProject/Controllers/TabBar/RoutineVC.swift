@@ -8,15 +8,15 @@
 import UIKit
 class RoutineVC : UIViewController{
     
+    
+    
     override func viewDidLoad() {
-           super.viewDidLoad()
-   
+        super.viewDidLoad()
+        view.backgroundColor = .white
     }
-   override func viewWillLayoutSubviews() {
-       super.viewWillLayoutSubviews()
-   }
-   override func viewDidLayoutSubviews() {
-       super.viewDidLayoutSubviews()
+    
+    
+    
+    
 
-   }
 }
