@@ -64,7 +64,7 @@ class RoomVC : UIViewController{
 extension RoomVC {
     func setView() {
         self.view.backgroundColor = .white
-        self.navigationItem.title = "채팅"
+        self.navigationItem.title = "채팅 "
     }
     
     func setAutoLayout() {
