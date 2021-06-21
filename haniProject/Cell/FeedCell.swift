@@ -157,6 +157,7 @@ class FeedCell: UICollectionViewCell {
     }()
     
     
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addContentView()
